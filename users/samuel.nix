@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+
   imports = [
     ./../modules/home-manager/neovim.nix
   ];

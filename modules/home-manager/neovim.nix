@@ -14,15 +14,34 @@
   programs.neovim.viAlias = true;
   programs.neovim.vimAlias = true;
   programs.neovim.vimdiffAlias = true;
-  programs.neovim.plugins = [
-    pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-  ];
-  programs.neovim.extraPackages = [
-    #pkgs.nodePackages_latest.vscode-json-languageserver
-    pkgs.lua-language-server
-    pkgs.nil
-    pkgs.gopls
-    pkgs.gcc
+  #programs.neovim.plugins = [];
+  programs.neovim.extraPackages = with pkgs; [
+    #deps
+    wl-clipboard
+    gcc
+    tree-sitter
+    nodejs-slim
+    codeium
+    lazygit
+
+    #python
+    pyright
+    black
+    isort
+
+    #nix 
+    nil
+    nixfmt-rfc-style
+
+    # lua
+    lua-language-server
+    stylua
+
+    # codespell    
+    codespell
+
+    # C/C++
+    clang-tools
 
   ];
   home.file = {
@@ -31,5 +50,5 @@
       recursive = true;
     };
   };
-  
+
 }

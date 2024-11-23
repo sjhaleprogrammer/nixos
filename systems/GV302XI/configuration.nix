@@ -11,7 +11,7 @@
   imports = [
      ./hardware-configuration.nix
      ./kernel.nix
-     ./../../modules/desktops/gnome.nix
+     ./../../modules/nixpkgs/gnome.nix
      inputs.home-manager.nixosModules.home-manager
 
   ];
