@@ -159,16 +159,6 @@
 
   ];
 
-  fonts.packages = with pkgs; [
-    font-awesome
-    iosevka
-    noto-fonts-cjk-sans
-    jetbrains-mono
-    nerdfonts
-    cascadia-code
-  ];
-
-
   #gnome exclusive services
   services.switcherooControl.enable = true;
 

@@ -7,17 +7,17 @@
 }:
 
 {
- 
+
   imports = [
-     ./hardware-configuration.nix
-     ./kernel.nix
-     ./../../modules/nixpkgs/gnome.nix
-     ./../../modules/nixpkgs/qemu.nix
-     ./../../modules/nixpkgs/podman.nix
-     inputs.home-manager.nixosModules.home-manager
+    ./hardware-configuration.nix
+    ./kernel.nix
+    ./../../modules/nixpkgs/gnome.nix
+    ./../../modules/nixpkgs/qemu.nix
+    ./../../modules/nixpkgs/podman.nix
+    inputs.home-manager.nixosModules.home-manager
 
   ];
-  
+
   #asus system services
   services = {
     asusd = {
@@ -118,7 +118,7 @@
       systemd-boot.enable = false;
       grub = {
         enable = true;
-        efiSupport = false; #change this back to true on finalize
+        efiSupport = true;
         useOSProber = true;
         #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
         device = "nodev";
@@ -130,8 +130,6 @@
     };
 
   };
-
-  
 
   hardware = {
 
@@ -180,7 +178,7 @@
     #Bluetooth
     #bluetooth.enable = true;
 
-  };  
+  };
 
   networking = {
 
@@ -235,18 +233,13 @@
       ]; # Enable ‘sudo’ for the user.
     };
   };
-  
 
-  /*
   swapDevices = [
     {
       device = "/var/lib/swapfile";
       size = 32 * 1024;
     }
   ];
-  */
-
-
 
   security = {
 

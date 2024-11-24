@@ -17,6 +17,18 @@
   home.homeDirectory = "/home/samuel";
   home.stateVersion = "23.05";
 
+  home.packages = with pkgs; [
+    font-awesome
+    iosevka
+    noto-fonts-cjk-sans
+    jetbrains-mono
+    nerdfonts
+    cascadia-code
+  ];
+
+  fonts.fontconfig.enable = true;
+
+
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
