@@ -23,13 +23,10 @@
     nodejs-slim
     codeium
     lazygit
-    python3
-    cargo
-    nodePackages.npm
+  
+     
     
-    
-    /*
-    
+    #python
     pyright
     black
     isort
@@ -47,7 +44,7 @@
 
     # C/C++
     clang-tools
-    */
+    
     
   ];
   home.file = {
