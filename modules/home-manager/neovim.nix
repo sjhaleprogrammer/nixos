@@ -23,8 +23,13 @@
     nodejs-slim
     codeium
     lazygit
-
-    #python
+    python3
+    cargo
+    nodePackages.npm
+    
+    
+    /*
+    
     pyright
     black
     isort
@@ -42,7 +47,8 @@
 
     # C/C++
     clang-tools
-
+    */
+    
   ];
   home.file = {
     ".config/nvim" = {

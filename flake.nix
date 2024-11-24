@@ -9,34 +9,41 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
+    in
+    {
       nixosConfigurations = {
 
         GV302XI = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = {inherit inputs system;};
+          specialArgs = {
+            inherit inputs system;
+          };
           modules = [
-              ./systems/GV302XI/configuration.nix
+            ./systems/GV302XI/configuration.nix
           ];
         };
       };
-        
-        
+
       homeConfigurations = {
-          samuel = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [
-               ./users/samuel.nix
-            ];
-          };
-        
+        samuel = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./users/samuel.nix
+          ];
+        };
+
       };
 
     };
-
 
 }
