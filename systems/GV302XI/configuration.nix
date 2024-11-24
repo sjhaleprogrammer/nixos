@@ -12,6 +12,8 @@
      ./hardware-configuration.nix
      ./kernel.nix
      ./../../modules/nixpkgs/gnome.nix
+     ./../../modules/nixpkgs/qemu.nix
+     ./../../modules/nixpkgs/podman.nix
      inputs.home-manager.nixosModules.home-manager
 
   ];
