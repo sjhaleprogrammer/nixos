@@ -22,9 +22,13 @@
     tree-sitter
     nodejs-slim
     codeium
+    gzip
     lazygit
   
-     
+    #javascript/typescript
+    nodePackages_latest.typescript-language-server
+    prettierd
+    nodePackages.prettier
     
     #python
     pyright

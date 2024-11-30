@@ -4,7 +4,7 @@
   boot = {
 
     kernelPackages = pkgs.linuxPackages_latest;
-    
+
     kernelParams = [
       "amdgpu.dcdebugmask=0x10"
       "video=DP-6:1920x1080@239.76"

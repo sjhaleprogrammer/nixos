@@ -114,6 +114,7 @@
 
   #bootloader
   boot = {
+    tmp.cleanOnBoot = true;
     loader = {
       systemd-boot.enable = false;
       grub = {
@@ -131,6 +132,9 @@
 
   };
 
+
+
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
 
     graphics = {
@@ -153,7 +157,7 @@
       modesetting.enable = true;
       open = false;
       nvidiaSettings = true;
-      #dynamicBoost.enable = true;
+      dynamicBoost.enable = false;
       #powerManagement.enable = true;
       powerManagement.finegrained = true;
       #nvidiaPersistenced = true;
