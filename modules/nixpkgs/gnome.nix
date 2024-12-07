@@ -28,7 +28,7 @@
   #minimal gnome
   environment.gnome.excludePackages =
     (with pkgs; [
-      gnome-console
+      #gnome-console
       #gnome-text-editor
       #snapshot
       #loupe
@@ -76,37 +76,21 @@
 
     #gmome
     gnomeExtensions.appindicator
-    gnomeExtensions.supergfxctl-gex
     gnomeExtensions.screen-rotate # 2 in 1 extension
-    gnomeExtensions.gsnap
     gnomeExtensions.quick-settings-audio-panel
-    #gnomeExtensions.rounded-window-corners-reborn# waiting for update >:(
-    gnomeExtensions.auto-move-windows
-    gnomeExtensions.vitals
+
     gnome-tweaks
-
-    #terminal
-    ptyxis
-
+    
     #video player
     celluloid
-
-    #zsh shit
-    starship
 
     #recording 
     obs-studio
 
-    #browser
-    firefox
 
     #xbox controllers
     xboxdrv
-
-    #discord
-    vesktop
-
-    #school shit 
+ 
 
     #libraries
     ntfs3g

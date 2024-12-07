@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   nixpkgs.config = {
@@ -7,9 +7,9 @@
 
   imports = [
     ./../modules/home-manager/neovim.nix
+    ./../modules/home-manager/gnome-macos-theme-dark.nix
   ];
-  
-  
+
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -18,6 +18,13 @@
   home.stateVersion = "23.05";
 
   home.packages = with pkgs; [
+    #browser
+    firefox
+
+    #discord
+    discord-canary
+
+    #fonts
     font-awesome
     iosevka
     noto-fonts-cjk-sans
@@ -26,16 +33,19 @@
     cascadia-code
   ];
 
+  #dont touch
   fonts.fontconfig.enable = true;
-
 
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
     userName = "samuel";
     userEmail = "samworlds1231337@gmail.com";
-    extraConfig = { safe = { directory = "/etc/nixos"; }; };
-
+    extraConfig = {
+      safe = {
+        directory = "/etc/nixos";
+      };
+    };
   };
 
   programs.zsh = {
@@ -55,47 +65,47 @@
     };
   };
 
+  programs.direnv = {
+    enable = true;
+  };
 
+  /*
+    gtk = {
+      enable = true;
 
-  programs.direnv = { enable = true; };
+      iconTheme = {
+        name = "Adwaita";
+        package = pkgs.adwaita-icon-theme;
+      };
 
-  /* gtk = {
-       enable = true;
+      theme = {
+        name = "Adwaita";
+        package = pkgs.gnome-themes-extra;
+      };
 
-       iconTheme = {
-         name = "Adwaita";
-         package = pkgs.adwaita-icon-theme;
-       };
-
-       theme = {
-         name = "Adwaita";
-         package = pkgs.gnome-themes-extra;
-       };
-
-     };
+    };
   */
 
- 
-
-  /* home.pointerCursor = let
-       getFrom = url: hash: name: {
-         gtk.enable = true;
-         x11.enable = true;
-         name = name;
-         size = 26;
-         package = pkgs.runCommand "moveUp" { } ''
-           mkdir -p $out/share/icons
-           ln -s ${
-             pkgs.fetchzip {
-               url = url;
-               hash = hash;
-             }
-           } $out/share/icons/${name}
-         '';
-       };
-     in getFrom
-     "https://github.com/manu-mannattil/adwaita-cursors/releases/download/v1.2/adwaita-cursors.tar.gz"
-     "sha256-zKa55zn4UO/cCTx2Es0xKxUwjFe5/k5xWI9RLJYpvsQ=" "Adwaita";
+  /*
+    home.pointerCursor = let
+      getFrom = url: hash: name: {
+        gtk.enable = true;
+        x11.enable = true;
+        name = name;
+        size = 26;
+        package = pkgs.runCommand "moveUp" { } ''
+          mkdir -p $out/share/icons
+          ln -s ${
+            pkgs.fetchzip {
+              url = url;
+              hash = hash;
+            }
+          } $out/share/icons/${name}
+        '';
+      };
+    in getFrom
+    "https://github.com/manu-mannattil/adwaita-cursors/releases/download/v1.2/adwaita-cursors.tar.gz"
+    "sha256-zKa55zn4UO/cCTx2Es0xKxUwjFe5/k5xWI9RLJYpvsQ=" "Adwaita";
   */
 
 }

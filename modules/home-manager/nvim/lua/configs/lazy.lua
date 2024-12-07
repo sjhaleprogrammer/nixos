@@ -1,6 +1,9 @@
 return {
   defaults = { lazy = false },
   install = { colorscheme = { "nvchad" } },
+  checker = {
+	check_pinned = true
+  },
 
   ui = {
     icons = {

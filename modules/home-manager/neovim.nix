@@ -14,15 +14,13 @@
   programs.neovim.viAlias = true;
   programs.neovim.vimAlias = true;
   programs.neovim.vimdiffAlias = true;
-  #programs.neovim.plugins = [];
+  #programs.neovim.plugins = with pkgs.vimPlugins; [];
   programs.neovim.extraPackages = with pkgs; [
     #deps
     wl-clipboard
     gcc
     tree-sitter
     nodejs-slim
-    codeium
-    gzip
     lazygit
   
     #javascript/typescript

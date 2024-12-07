@@ -144,16 +144,7 @@
     };
 
     nvidia = {
-
-      package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-        version = "565.57.01";
-        sha256_64bit = "sha256-buvpTlheOF6IBPWnQVLfQUiHv4GcwhvZW3Ks0PsYLHo=";
-        sha256_aarch64 = lib.fakeSha256;
-        openSha256 = lib.fakeSha256;
-        settingsSha256 = "sha256-H7uEe34LdmUFcMcS6bz7sbpYhg9zPCb/5AmZZFTx1QA=";
-        persistencedSha256 = lib.fakeSha256;
-      };
-
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
       open = false;
       nvidiaSettings = true;
