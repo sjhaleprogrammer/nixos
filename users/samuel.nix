@@ -6,8 +6,8 @@
   };
 
   imports = [
-    ./../modules/home-manager/neovim.nix
-    ./../modules/home-manager/gnome-macos-theme-dark.nix
+    ./../modules/home-manager/neovim/neovim.nix
+    ./../modules/home-manager/macos-theme/gnome-macos-theme-dark.nix
   ];
 
   # Let home Manager install and manage itself.

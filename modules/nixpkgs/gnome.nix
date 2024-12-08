@@ -74,11 +74,6 @@
 
     switcheroo-control # dbus for dual gpu
 
-    #gmome
-    gnomeExtensions.appindicator
-    gnomeExtensions.screen-rotate # 2 in 1 extension
-    gnomeExtensions.quick-settings-audio-panel
-
     gnome-tweaks
     
     #video player
