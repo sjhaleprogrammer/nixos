@@ -11,6 +11,7 @@
   imports = [
     ./hardware-configuration.nix
     ./kernel.nix
+    ./update-on-shutdown.nix
     ./../../modules/nixpkgs/gnome.nix
     ./../../modules/nixpkgs/qemu.nix
     ./../../modules/nixpkgs/podman.nix
@@ -148,10 +149,10 @@
       modesetting.enable = true;
       open = false;
       nvidiaSettings = true;
-      dynamicBoost.enable = false;
-      #powerManagement.enable = true;
+      dynamicBoost.enable = true;
+      powerManagement.enable = true;
       powerManagement.finegrained = true;
-      #nvidiaPersistenced = true;
+      nvidiaPersistenced = true;
 
       prime = {
         offload = {
