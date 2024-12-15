@@ -16,6 +16,9 @@
   home.username = "samuel";
   home.homeDirectory = "/home/samuel";
   home.stateVersion = "23.05";
+  
+  services.home-manager.autoUpgrade.enable = true;
+  services.home-manager.autoUpgrade.frequency = "daily";
 
   home.packages = with pkgs; [
     #terminal
