@@ -28,7 +28,7 @@
   #minimal gnome
   environment.gnome.excludePackages =
     (with pkgs; [
-      #gnome-console
+      gnome-console
       #gnome-text-editor
       #snapshot
       #loupe

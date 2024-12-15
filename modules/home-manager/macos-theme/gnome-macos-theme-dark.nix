@@ -55,10 +55,11 @@
     gnomeExtensions.logo-menu
     gnomeExtensions.just-perfection
     gnomeExtensions.compiz-alike-magic-lamp-effect
-    gnomeExtensions.coverflow-alt-tab
     gnomeExtensions.gnome-40-ui-improvements
     gnomeExtensions.search-light
     gnomeExtensions.burn-my-windows
+    gnomeExtensions.rounded-window-corners-reborn
+    gnomeExtensions.gtk4-desktop-icons-ng-ding
 
   ];
 
@@ -92,10 +93,11 @@
         logo-menu.extensionUuid
         just-perfection.extensionUuid
         compiz-alike-magic-lamp-effect.extensionUuid
-        coverflow-alt-tab.extensionUuid
         gnome-40-ui-improvements.extensionUuid
         search-light.extensionUuid
         burn-my-windows.extensionUuid
+        rounded-window-corners-reborn.extensionUuid
+        gtk4-desktop-icons-ng-ding.extensionUuid
         
       ];
     };
@@ -127,6 +129,15 @@
       panel-size=0;
       startup-status=0;
       window-demands-attention-focus=true;
+    };
+    
+    #gtk4-ding extension
+    "org/gnome/shell/extensions/gtk4-ding" = {
+      free-position-icons=true;
+      show-volumes=true;
+      show-trash=false;
+      show-home=false;
+      start-corner="top-right";
     };
     
 

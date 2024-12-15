@@ -18,6 +18,9 @@
   home.stateVersion = "23.05";
 
   home.packages = with pkgs; [
+    #terminal
+    mate.mate-terminal
+    
     #browser
     firefox
 
@@ -67,6 +70,15 @@
 
   programs.direnv = {
     enable = true;
+  };
+  
+  dconf.settings = {
+    "org/mate/terminal/profiles/default" = {
+      font = "JetBrainsMono Nerd Font 13";
+      title = "samuel";
+      default-show-menubar = false;
+      
+    };
   };
 
   /*

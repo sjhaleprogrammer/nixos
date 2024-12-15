@@ -47,7 +47,8 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 14d";
+      options = "--delete-older-than 3d";
+      persistent = true;
     };
 
     #optimise.automatic = true;
@@ -133,8 +134,6 @@
 
   };
 
-
-
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
 
@@ -197,7 +196,7 @@
 
   };
 
-  #time 
+  #time
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
 
