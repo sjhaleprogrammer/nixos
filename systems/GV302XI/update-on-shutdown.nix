@@ -11,6 +11,8 @@
     flags = [
       "--update-input"
       "nixpkgs"
+      "--update-input"
+      "home-manager"
       "-L" # print build logs
     ];
     dates = "daily";
