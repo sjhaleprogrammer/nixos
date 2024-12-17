@@ -60,7 +60,8 @@
     gnomeExtensions.burn-my-windows
     gnomeExtensions.rounded-window-corners-reborn
     gnomeExtensions.gtk4-desktop-icons-ng-ding
-
+    
+   
   ];
 
   dconf.settings = {
@@ -142,6 +143,9 @@
     
 
   };
+  
+  
+
 
   home.file = {
 
@@ -155,12 +159,34 @@
       recursive = true;
     };
     
-    #for firefox users
-    ".mozilla/firefox/firefox-themes" = {
-      source = ./firefox-themes;
-      recursive = true;
-    };
-
   };
+  
+  home.activation = {
+	  installFirefoxTheme = ''
+	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-firefox-theme
+	    theme_dir="$HOME/WhiteSur-firefox-theme"
+	    install_script="$theme_dir/install.sh"
+
+	    if [ -f "$install_script" ]; then
+	      echo "Attempting to install WhiteSur Firefox Theme..."
+	      
+	      # Ensure the script is executable
+	      chmod +x "$install_script"
+	      
+	      # Run the installation script as the current user directly
+	      cd "$theme_dir"
+	      ${pkgs.bash}/bin/bash -c "export PATH=${pkgs.getent}/bin:${pkgs.firefox}/bin:${pkgs.sudo}/bin:${pkgs.gawk}/bin:\$PATH; bash $install_script"
+	      rm -rf "$theme_dir"
+	    else
+	      echo "Theme installation script not found at $install_script"
+	    fi
+	  '';
+   };
+
+
+ 
+
+  
+
 
 }
