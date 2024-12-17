@@ -19,7 +19,6 @@
 
     theme = {
       name = "WhiteSur-Dark";
-      package = pkgs.whitesur-gtk-theme;
     };
 
   };
@@ -149,11 +148,6 @@
 
   home.file = {
 
-    ".config/gtk-4.0" = {
-      source = ./gtk-4.0;
-      recursive = true;
-    };
-
     ".local/share/fonts" = {
       source = ./fonts;
       recursive = true;
@@ -162,8 +156,35 @@
   };
   
   home.activation = {
-	  installFirefoxTheme = ''
-	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-firefox-theme
+  
+
+  	  installThemes = ''
+	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git 
+	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-firefox-theme.git
+	    
+	    theme_dir="$HOME/WhiteSur-gtk-theme"
+	    install_script="$theme_dir/install.sh"
+
+	    if [ -f "$install_script" ]; then
+		echo "Attempting to install WhiteSur GTK Theme..."
+
+		# Ensure the script is executable
+		chmod +x "$install_script"
+
+		# Set up the required library paths and link them to the environment
+		export PATH=${pkgs.sassc}/bin:${pkgs.which}/bin:${pkgs.getent}/bin:${pkgs.util-linux}/bin:${pkgs.glib.dev}/bin:${pkgs.libxml2.bin}/bin:${pkgs.sudo}/bin:$PATH
+
+		# Run the installation script as the current user directly
+		cd "$theme_dir"
+		${pkgs.bash}/bin/bash -c "bash $install_script -l" 
+		
+		# Clean up after installation
+		rm -rf "$theme_dir"
+	    else
+		echo "Theme installation script not found at $install_script"
+	    fi
+
+	    
 	    theme_dir="$HOME/WhiteSur-firefox-theme"
 	    install_script="$theme_dir/install.sh"
 
@@ -181,6 +202,8 @@
 	      echo "Theme installation script not found at $install_script"
 	    fi
 	  '';
+	  
+	  
    };
 
 
