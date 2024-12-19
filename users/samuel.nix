@@ -31,19 +31,15 @@
 
     
     #editor
-    (pkgs.writeShellScriptBin "cursor" ''
-    exec ${pkgs.code-cursor}/bin/cursor --enable-features=UseOzonePlatform --ozone-platform=x11
-    '')
+    code-cursor
     
-    
+
     #discord-canary
     (discord-canary.override {
       withVencord = true;
     })
-    (pkgs.writeShellScriptBin "discord-canary" ''
-    exec ${pkgs.discord-canary}/bin/discord-canary --enable-features=UseOzonePlatform --ozone-platform=x11
-    '')
-  
+    
+   
 
     #fonts
     font-awesome
@@ -56,6 +52,8 @@
 
   #dont touch
   fonts.fontconfig.enable = true;
+
+
 
   # basic configuration of git, please change to your own
   programs.git = {

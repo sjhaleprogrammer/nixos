@@ -59,6 +59,8 @@
 
   };
 
+
+  programs.xwayland.enable = true;
   environment = {
     shells = with pkgs; [
       zsh
@@ -69,7 +71,8 @@
 
     sessionVariables = rec {
       #NIXOS_OZONE_WL = "1"; # in the future issue -> https://github.com/electron/electron/issues/44540
-
+      ELECTRON_OZONE_PLATFORM_HINT = "x11";
+      
       XDG_CACHE_HOME = "$HOME/.cache";
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_DATA_HOME = "$HOME/.local/share";
@@ -84,8 +87,6 @@
   };
   
 
-  
-  programs.xwayland.enable = true;
 
   services = {
 
