@@ -66,6 +66,7 @@
       safe = {
         directory = "/etc/nixos";
       };
+      credential.helper = "${pkgs.git-credential-manager}/bin/git-credential-manger";
     };
   };
 
