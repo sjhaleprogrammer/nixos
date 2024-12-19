@@ -68,8 +68,7 @@
     binsh = "${pkgs.dash}/bin/dash";
 
     sessionVariables = rec {
-      NIXOS_OZONE_WL = "1"; # Most Electron Applications
-      USE_WAYLAND = "1"; # ArmCord
+      #NIXOS_OZONE_WL = "1"; # in the future issue -> https://github.com/electron/electron/issues/44540
 
       XDG_CACHE_HOME = "$HOME/.cache";
       XDG_CONFIG_HOME = "$HOME/.config";
@@ -83,6 +82,10 @@
     };
 
   };
+  
+
+  
+  programs.xwayland.enable = true;
 
   services = {
 

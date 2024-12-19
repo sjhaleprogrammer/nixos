@@ -109,7 +109,7 @@
     
     #Logo menu extension
     "org/gnome/shell/extensions/Logo-menu" = {
-      menu-button-terminal = "kgx";
+      menu-button-terminal = "mate-terminal";
       show-power-options = true;
     };
     
@@ -139,6 +139,15 @@
       show-home=false;
       start-corner="top-right";
     };
+    
+    /*
+    "org/gnome/shell/extensions/rounded-window-corners-reborn" = {
+	  global-rounded-corner-settings=''{'padding': <{'left': uint32 1, 'right': 1, 'top': 1, 'bottom': 1}>, 'keepRoundedCorners': <{'maximized': true, 'fullscreen': false}>, 'borderRadius': <uint32 12>, 'smoothing': <0.0>, 'enabled': <true>}'';
+
+    };
+    */  
+      
+    
     
 
   };
@@ -196,7 +205,7 @@
 	      
 	      # Run the installation script as the current user directly
 	      cd "$theme_dir"
-	      ${pkgs.bash}/bin/bash -c "export PATH=${pkgs.getent}/bin:${pkgs.firefox}/bin:${pkgs.sudo}/bin:${pkgs.gawk}/bin:\$PATH; bash $install_script"
+	      ${pkgs.bash}/bin/bash -c "export PATH=${pkgs.getent}/bin:${pkgs.firefox}/bin:${pkgs.sudo}/bin:${pkgs.gawk}/bin:\$PATH; bash $install_script -m"
 	      rm -rf "$theme_dir"
 	    else
 	      echo "Theme installation script not found at $install_script"

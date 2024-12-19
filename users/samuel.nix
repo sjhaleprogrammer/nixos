@@ -21,14 +21,29 @@
   services.home-manager.autoUpgrade.frequency = "daily";
 
   home.packages = with pkgs; [
+  
+  
     #terminal
     mate.mate-terminal
     
     #browser
     firefox
 
-    #discord
-    discord-canary
+    
+    #editor
+    (pkgs.writeShellScriptBin "cursor" ''
+    exec ${pkgs.code-cursor}/bin/cursor --enable-features=UseOzonePlatform --ozone-platform=x11
+    '')
+    
+    
+    #discord-canary
+    (discord-canary.override {
+      withVencord = true;
+    })
+    (pkgs.writeShellScriptBin "discord-canary" ''
+    exec ${pkgs.discord-canary}/bin/discord-canary --enable-features=UseOzonePlatform --ozone-platform=x11
+    '')
+  
 
     #fonts
     font-awesome
