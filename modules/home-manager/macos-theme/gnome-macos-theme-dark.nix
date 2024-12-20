@@ -60,6 +60,7 @@
     gnomeExtensions.burn-my-windows
     gnomeExtensions.rounded-window-corners-reborn
     gnomeExtensions.gtk4-desktop-icons-ng-ding
+    gnomeExtensions.dash-to-dock
 
   ];
 
@@ -67,6 +68,10 @@
 
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+
+      clock-format = "12h";
+      enable-hot-corners = false;
+
 
       #macos font
       font-name = "SF Pro Display 13";
@@ -98,6 +103,7 @@
         burn-my-windows.extensionUuid
         rounded-window-corners-reborn.extensionUuid
         gtk4-desktop-icons-ng-ding.extensionUuid
+        dash-to-dock.extensionUuid
 
       ];
     };
@@ -140,7 +146,45 @@
       start-corner = "top-right";
     };
     
-    
+    #dash to dock extension
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      application-counter-overrides-notifications = true;
+      apply-custom-theme = true;
+      autohide = false;
+      autohide-in-fullscreen = false;
+      background-opacity = 0.45;
+      click-action = "focus-minimize-or-previews";
+      custom-background-color = false;
+      custom-theme-shrink = true;
+      customize-alphas = true;
+      dance-urgent-applications = true;
+      dash-max-icon-size = 64;
+      disable-overview-on-startup = true;
+      dock-fixed = false;
+      extend-height = false;
+      height-fraction = 1.0;
+      hide-tooltip = false;
+      hot-keys = false;
+      icon-size-fixed = false;
+      intellihide = true;
+      intellihide-mode = "MAXIMIZED_WINDOWS";
+      isolate-workspaces = false;
+      max-alpha = 0.75;
+      min-alpha = 0.4;
+      multi-monitor = false;
+      preview-size-scale = 0.0;
+      running-indicator-style = "DOTS";
+      scroll-to-focused-application = true;
+      show-apps-always-in-the-edge = true;
+      show-apps-at-top = true;
+      show-favorites = true;
+      show-icons-emblems = true;
+      show-icons-notifications-counter = true;
+      show-running = true;
+      show-show-apps-button = true;
+      transparency-mode = "DYNAMIC";
+      workspace-agnostic-urgent-windows = true;
+    };
 
   };
 
@@ -160,6 +204,8 @@
        ${pkgs.dconf}/bin/dconf write /org/gnome/shell/extensions/rounded-window-corners-reborn/global-rounded-corner-settings "@a{sv} {'padding': <@a{sv} {'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keepRoundedCorners': <@a{sv} {'maximized': <true>, 'fullscreen': <false>}>, 'borderRadius': <uint32 12>, 'smoothing': <0.0>, 'enabled': <true>}"
 
     '';
+    
+    
     
     installThemes = ''
       	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git 
