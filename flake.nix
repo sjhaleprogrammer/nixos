@@ -24,7 +24,7 @@
       nixosConfigurations = {
 
         GV302XI = nixpkgs.lib.nixosSystem {
-          inherit system;
+          system = system;
           specialArgs = {
             inherit inputs system;
           };
