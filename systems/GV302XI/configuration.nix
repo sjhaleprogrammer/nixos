@@ -15,8 +15,6 @@
     ./../../modules/nixpkgs/gnome.nix
     ./../../modules/nixpkgs/qemu.nix
     ./../../modules/nixpkgs/podman.nix
-    inputs.home-manager.nixosModules.home-manager
-
   ];
 
   #asus system services
@@ -219,7 +217,6 @@
     };
 
     users.samuel = {
-      packages = lib.mkDefault [ pkgs.home-manager ];
       isNormalUser = true;
       home = "/home/samuel";
       shell = pkgs.zsh;

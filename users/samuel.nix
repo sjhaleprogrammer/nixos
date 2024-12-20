@@ -1,10 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
+  
   imports = [
     ./../modules/home-manager/neovim/neovim.nix
     ./../modules/home-manager/macos-theme/gnome-macos-theme-dark.nix
