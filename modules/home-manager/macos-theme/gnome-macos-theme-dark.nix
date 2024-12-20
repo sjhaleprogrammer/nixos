@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
 
@@ -9,7 +14,7 @@
     cursorTheme = {
       name = "macOS";
       package = pkgs.apple-cursor;
-      size = 32; 
+      size = 32;
     };
 
     iconTheme = {
@@ -22,7 +27,6 @@
     };
 
   };
-  
 
   qt = {
     enable = true;
@@ -41,10 +45,7 @@
     "Kvantum/WhiteSur".source = "${pkgs.whitesur-kde}/share/Kvantum/WhiteSur";
   };
 
-
-  home.packages = with pkgs; [  
-   
-    
+  home.packages = with pkgs; [
 
     gnomeExtensions.appindicator
     gnomeExtensions.screen-rotate # 2 in 1 display extension
@@ -59,8 +60,7 @@
     gnomeExtensions.burn-my-windows
     gnomeExtensions.rounded-window-corners-reborn
     gnomeExtensions.gtk4-desktop-icons-ng-ding
-    
-   
+
   ];
 
   dconf.settings = {
@@ -78,7 +78,7 @@
     #window control button layout
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "close,minimize,maximize:";
-      titlebar-font= "SF Pro Display 13";
+      titlebar-font = "SF Pro Display 13";
 
     };
 
@@ -98,7 +98,7 @@
         burn-my-windows.extensionUuid
         rounded-window-corners-reborn.extensionUuid
         gtk4-desktop-icons-ng-ding.extensionUuid
-        
+
       ];
     };
 
@@ -106,54 +106,43 @@
     "org/gnome/shell/extensions/user-theme" = {
       name = "WhiteSur-Dark";
     };
-    
+
     #Logo menu extension
     "org/gnome/shell/extensions/Logo-menu" = {
       menu-button-terminal = "mate-terminal";
       show-power-options = true;
     };
-    
+
     #just perfection
     "org/gnome/shell/extensions/just-perfection" = {
-      activities-button=false;
-      alt-tab-icon-size=0;
-      alt-tab-small-icon-size=0;
-      alt-tab-window-preview-size=0;
-      clock-menu-position=1;
-      clock-menu-position-offset=20;
-      dash-icon-size=0;
-      looking-glass-width=0;
-      notification-banner-position=2;
-      panel-notification-icon=false;
-      panel-icon-size=0;
-      panel-size=0;
-      startup-status=0;
-      window-demands-attention-focus=true;
+      activities-button = false;
+      alt-tab-icon-size = 0;
+      alt-tab-small-icon-size = 0;
+      alt-tab-window-preview-size = 0;
+      clock-menu-position = 1;
+      clock-menu-position-offset = 20;
+      dash-icon-size = 0;
+      looking-glass-width = 0;
+      notification-banner-position = 2;
+      panel-notification-icon = false;
+      panel-icon-size = 0;
+      panel-size = 0;
+      startup-status = 0;
+      window-demands-attention-focus = true;
     };
-    
+
     #gtk4-ding extension
     "org/gnome/shell/extensions/gtk4-ding" = {
-      free-position-icons=true;
-      show-volumes=true;
-      show-trash=false;
-      show-home=false;
-      start-corner="top-right";
+      free-position-icons = true;
+      show-volumes = true;
+      show-trash = false;
+      show-home = false;
+      start-corner = "top-right";
     };
-    
-    /*
-    "org/gnome/shell/extensions/rounded-window-corners-reborn" = {
-	  global-rounded-corner-settings=''{'padding': <{'left': uint32 1, 'right': 1, 'top': 1, 'bottom': 1}>, 'keepRoundedCorners': <{'maximized': true, 'fullscreen': false}>, 'borderRadius': <uint32 12>, 'smoothing': <0.0>, 'enabled': <true>}'';
-
-    };
-    */  
-      
     
     
 
   };
-  
-  
-
 
   home.file = {
 
@@ -163,62 +152,60 @@
     };
     
   };
-  
+
   home.activation = {
-  
+    
 
-  	  installThemes = ''
-	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git 
-	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-firefox-theme.git
-	    
-	    theme_dir="$HOME/WhiteSur-gtk-theme"
-	    install_script="$theme_dir/install.sh"
+    rounded-window-corners-reborn = ''
+       ${pkgs.dconf}/bin/dconf write /org/gnome/shell/extensions/rounded-window-corners-reborn/global-rounded-corner-settings "@a{sv} {'padding': <@a{sv} {'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keepRoundedCorners': <@a{sv} {'maximized': <true>, 'fullscreen': <false>}>, 'borderRadius': <uint32 12>, 'smoothing': <0.0>, 'enabled': <true>}"
 
-	    if [ -f "$install_script" ]; then
-		echo "Attempting to install WhiteSur GTK Theme..."
+    '';
+    
+    installThemes = ''
+      	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git 
+      	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-firefox-theme.git
+      	    
+      	    theme_dir="$HOME/WhiteSur-gtk-theme"
+      	    install_script="$theme_dir/install.sh"
 
-		# Ensure the script is executable
-		chmod +x "$install_script"
+      	    if [ -f "$install_script" ]; then
+      		    echo "Attempting to install WhiteSur GTK Theme..."
 
-		# Set up the required library paths and link them to the environment
-		export PATH=${pkgs.sassc}/bin:${pkgs.which}/bin:${pkgs.getent}/bin:${pkgs.util-linux}/bin:${pkgs.glib.dev}/bin:${pkgs.libxml2.bin}/bin:${pkgs.sudo}/bin:$PATH
+              # Ensure the script is executable
+              chmod +x "$install_script"
 
-		# Run the installation script as the current user directly
-		cd "$theme_dir"
-		${pkgs.bash}/bin/bash -c "bash $install_script -l" 
-		
-		# Clean up after installation
-		rm -rf "$theme_dir"
-	    else
-		echo "Theme installation script not found at $install_script"
-	    fi
+              # Set up the required library paths and link them to the environment
+              export PATH=${pkgs.sassc}/bin:${pkgs.which}/bin:${pkgs.getent}/bin:${pkgs.util-linux}/bin:${pkgs.glib.dev}/bin:${pkgs.libxml2.bin}/bin:${pkgs.sudo}/bin:$PATH
 
-	    
-	    theme_dir="$HOME/WhiteSur-firefox-theme"
-	    install_script="$theme_dir/install.sh"
+              # Run the installation script as the current user directly
+              cd "$theme_dir"
+              ${pkgs.bash}/bin/bash -c "bash $install_script -l" 
+              
+              # Clean up after installation
+              rm -rf "$theme_dir"
+                else
+              echo "Theme installation script not found at $install_script"
+                fi
 
-	    if [ -f "$install_script" ]; then
-	      echo "Attempting to install WhiteSur Firefox Theme..."
-	      
-	      # Ensure the script is executable
-	      chmod +x "$install_script"
-	      
-	      # Run the installation script as the current user directly
-	      cd "$theme_dir"
-	      ${pkgs.bash}/bin/bash -c "export PATH=${pkgs.getent}/bin:${pkgs.firefox}/bin:${pkgs.sudo}/bin:${pkgs.gawk}/bin:\$PATH; bash $install_script -m"
-	      rm -rf "$theme_dir"
-	    else
-	      echo "Theme installation script not found at $install_script"
-	    fi
-	  '';
-	  
-	  
-   };
+      	    
+      	    theme_dir="$HOME/WhiteSur-firefox-theme"
+      	    install_script="$theme_dir/install.sh"
 
+      	    if [ -f "$install_script" ]; then
+      	      echo "Attempting to install WhiteSur Firefox Theme..."
+      	      
+      	      # Ensure the script is executable
+      	      chmod +x "$install_script"
+      	      
+      	      # Run the installation script as the current user directly
+      	      cd "$theme_dir"
+      	      ${pkgs.bash}/bin/bash -c "export PATH=${pkgs.getent}/bin:${pkgs.firefox}/bin:${pkgs.sudo}/bin:${pkgs.gawk}/bin:\$PATH; bash $install_script -m"
+      	      rm -rf "$theme_dir"
+      	    else
+      	      echo "Theme installation script not found at $install_script"
+      	    fi
+      	  '';
 
- 
-
-  
-
+  };
 
 }

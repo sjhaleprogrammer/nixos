@@ -32,6 +32,7 @@
     
     #editor
     code-cursor
+    nixfmt-rfc-style
     
 
     #discord-canary
