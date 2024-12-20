@@ -23,27 +23,30 @@
     {
       nixosConfigurations = {
 
-        GV302XI = nixpkgs.lib.nixosSystem {
+        samuel = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit inputs system;
           };
           modules = [
             ./systems/GV302XI/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.samuel = import ./users/samuel.nix { inherit pkgs; };
+            }
+            
           ];
         };
+
+
+        # TODO: Add other configurations here if needed
+
+
+        
       };
 
-      homeConfigurations = {
-        samuel = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./users/samuel.nix
-          ];
-        };
-
-      };
-
-    };
+     
 
 }
