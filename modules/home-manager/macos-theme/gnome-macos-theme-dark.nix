@@ -57,7 +57,6 @@
     gnomeExtensions.compiz-alike-magic-lamp-effect
     gnomeExtensions.gnome-40-ui-improvements
     gnomeExtensions.search-light
-    gnomeExtensions.burn-my-windows
     gnomeExtensions.rounded-window-corners-reborn
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     gnomeExtensions.dash-to-dock
@@ -100,7 +99,6 @@
         compiz-alike-magic-lamp-effect.extensionUuid
         gnome-40-ui-improvements.extensionUuid
         search-light.extensionUuid
-        burn-my-windows.extensionUuid
         rounded-window-corners-reborn.extensionUuid
         gtk4-desktop-icons-ng-ding.extensionUuid
         dash-to-dock.extensionUuid
