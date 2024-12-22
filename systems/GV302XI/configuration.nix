@@ -129,6 +129,10 @@
 
 
   hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
 
     #2 in 1 laptop
     sensor.iio.enable = true;
@@ -171,6 +175,7 @@
     keyMap = "us";
   };
 
+
   programs.zsh.enable = true;
 
   #users
@@ -183,7 +188,7 @@
       users.samuel = {
         isNormalUser = true;
         home = "/home/samuel";
-        #password = "test";
+        password = "test";
         shell = pkgs.zsh;
         uid = 1000;
         group = "samuel";

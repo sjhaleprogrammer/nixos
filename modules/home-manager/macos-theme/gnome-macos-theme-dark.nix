@@ -205,7 +205,7 @@
     
     
     
-    installThemes = ''
+    installThemes = lib.hm.dag.entryAfter [ "writeBoundary" "installPackages" "git" ] ''
       	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git 
       	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-firefox-theme.git
       	    
