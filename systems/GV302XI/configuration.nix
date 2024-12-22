@@ -11,24 +11,15 @@
   imports = [
     ./hardware-configuration.nix
     ./kernel.nix
+    inputs.nixos-hardware.nixosModules.asus-flow-gv302xi-amdgpu
+    inputs.nixos-hardware.nixosModules.asus-flow-gv302xi-nvidia
     ./update-on-shutdown.nix
-    ./../../modules/nixpkgs/gnome.nix
     ./../../modules/nixpkgs/qemu.nix
     ./../../modules/nixpkgs/podman.nix
   ];
 
-  #asus system services
-  services = {
-    asusd = {
-      enable = true;
-      enableUserService = true;
-    };
-  };
+  
 
-  systemd.services.supergfxd.path = [
-    pkgs.pciutils
-    pkgs.lsof
-  ];
 
   system = {
     stateVersion = "23.05";
@@ -136,35 +127,8 @@
 
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+
   hardware = {
-
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = with pkgs; [ rocmPackages.clr.icd ];
-    };
-
-    nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
-      modesetting.enable = true;
-      open = false;
-      nvidiaSettings = true;
-      dynamicBoost.enable = true;
-      powerManagement.enable = true;
-      powerManagement.finegrained = true;
-      nvidiaPersistenced = true;
-
-      prime = {
-        offload = {
-          enable = true;
-          enableOffloadCmd = true;
-        };
-
-        amdgpuBusId = "PCI:69:0:0";
-        nvidiaBusId = "PCI:1:0:0";
-      };
-    };
 
     #2 in 1 laptop
     sensor.iio.enable = true;
@@ -211,23 +175,24 @@
 
   #users
   users = {
-    mutableUsers = true;
-    groups = {
-      samuel.gid = 1000;
-    };
-
-    users.samuel = {
-      isNormalUser = true;
-      home = "/home/samuel";
-      shell = pkgs.zsh;
-      uid = 1000;
-      group = "samuel";
-      extraGroups = [
-        "wheel"
-        "networkmanager"
-        "gamemode"
-      ]; # Enable ‘sudo’ for the user.
-    };
+      mutableUsers = true;
+      groups = {
+        samuel.gid = 1000;
+      };
+  
+      users.samuel = {
+        isNormalUser = true;
+        home = "/home/samuel";
+        #password = "test";
+        shell = pkgs.zsh;
+        uid = 1000;
+        group = "samuel";
+        extraGroups = [
+          "wheel"
+          "networkmanager"
+          "gamemode"
+        ]; # Enable ‘sudo’ for the user.
+      };
   };
 
   swapDevices = [
@@ -282,5 +247,30 @@
     rtkit.enable = true;
 
   };
+
+
+  virtualisation.vmVariant = {
+    # following configuration is added only when building VM with build-vm
+    virtualisation = {
+      memorySize =  8192; 
+      cores = 8;         
+    };
+    virtualisation.resolution = {
+      x = 1280;
+      y = 1024;
+    };
+    virtualisation.qemu.options = [
+      # Better display option
+      "-vga virtio"
+      "-display gtk,zoom-to-fit=false"
+      # Enable copy/paste
+      # https://www.kraxel.org/blog/2021/05/qemu-cut-paste/
+      "-chardev qemu-vdagent,id=ch1,name=vdagent,clipboard=on"
+      "-device virtio-serial-pci"
+      "-device virtserialport,chardev=ch1,id=ch1,name=com.redhat.spice.0"
+    ];
+  };
+
+  
 
 }

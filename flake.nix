@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:sjhaleprogrammer/nixos-hardware/master";
   };
 
   outputs =
@@ -34,12 +35,13 @@
             inherit inputs system;
           };
           modules = [
-            ./systems/GV302XI/configuration.nix
-            home-manager.nixosModules.home-manager
+            ./systems/GV302XI/configuration.nix #system
+            ./modules/nixpkgs/gnome.nix #compositer
+            home-manager.nixosModules.home-manager #user
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.samuel = import ./users/samuel.nix { inherit pkgs; };
+              home-manager.users.samuel = import ./users/samuel.nix;
             }
             
           ];

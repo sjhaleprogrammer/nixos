@@ -3,7 +3,7 @@
 {
   
   imports = [
-    ./../modules/home-manager/neovim/neovim.nix
+    #./../modules/home-manager/neovim/neovim.nix
     ./../modules/home-manager/macos-theme/gnome-macos-theme-dark.nix
   ];
 
@@ -68,6 +68,7 @@
 
   programs.zsh = {
     enable = true;
+    dotDir = ".config/zsh";
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
@@ -81,6 +82,7 @@
         }
       ];
     };
+
   };
 
   programs.direnv = {
