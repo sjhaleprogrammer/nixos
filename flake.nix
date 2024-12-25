@@ -21,6 +21,8 @@
       self,
       nixpkgs,
       home-manager,
+      nixos-hardware,
+      nixcord,
       ...
     }@inputs:
     let
@@ -45,6 +47,9 @@
             ./modules/nixpkgs/gnome.nix #compositer
             home-manager.nixosModules.home-manager #user
             {
+              home-manager.sharedModules = [
+                inputs.nixcord.homeManagerModules.nixcord
+              ];
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.samuel = import ./users/samuel.nix;
