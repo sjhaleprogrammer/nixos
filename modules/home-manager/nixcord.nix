@@ -3,8 +3,7 @@
 {
   programs.nixcord = {
     enable = true;
-    vesktop.enable = true;
-    discord.enable = false;
+    discord.enable = true;
     quickCss = "some CSS";
     config = {
       useQuickCss = true;
