@@ -4,6 +4,7 @@
   
   imports = [
     #./../modules/home-manager/neovim/neovim.nix
+    ./../modules/home-manager/nixcord.nix
     ./../modules/home-manager/macos-theme/gnome-macos-theme-dark.nix
   ];
 
@@ -31,13 +32,7 @@
     code-cursor
     nixfmt-rfc-style
     
-
-    #discord-canary
-    (discord-canary.override {
-      withVencord = true;
-    })
     
-   
 
     #fonts
     font-awesome

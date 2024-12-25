@@ -11,8 +11,8 @@
   imports = [
     ./hardware-configuration.nix
     ./kernel.nix
-    inputs.nixos-hardware.nixosModules.asus-flow-gv302xi-amdgpu
-    inputs.nixos-hardware.nixosModules.asus-flow-gv302xi-nvidia
+    inputs.nixos-hardware.nixosModules.asus-flow-gv302x-amdgpu
+    inputs.nixos-hardware.nixosModules.asus-flow-gv302x-nvidia
     ./update-on-shutdown.nix
     ./../../modules/nixpkgs/qemu.nix
     ./../../modules/nixpkgs/podman.nix
@@ -59,6 +59,7 @@
     binsh = "${pkgs.dash}/bin/dash";
 
     sessionVariables = rec {
+      #electron
       #NIXOS_OZONE_WL = "1"; # in the future issue -> https://github.com/electron/electron/issues/44540
       ELECTRON_OZONE_PLATFORM_HINT = "x11";
       
@@ -134,9 +135,6 @@
       enable32Bit = true;
     };
 
-    #2 in 1 laptop
-    sensor.iio.enable = true;
-
     logitech.wireless.enable = true;
     pulseaudio.enable = false;
 
@@ -188,7 +186,7 @@
       users.samuel = {
         isNormalUser = true;
         home = "/home/samuel";
-        password = "test";
+        #password = "test";
         shell = pkgs.zsh;
         uid = 1000;
         group = "samuel";

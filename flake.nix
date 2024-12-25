@@ -2,12 +2,18 @@
   description = "Nixos config flake";
 
   inputs = {
+    #nixos
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    
+    #modules
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:sjhaleprogrammer/nixos-hardware/master";
+    nixcord.url = "github:kaylorben/nixcord";
+
+
   };
 
   outputs =
