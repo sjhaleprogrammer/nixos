@@ -54,7 +54,7 @@
                 
                 #nixcord
                 inputs.nixcord.homeManagerModules.nixcord
-                ./modules/nixcord.nix 
+                ./home-manager/nixcord.nix 
 
 
 
