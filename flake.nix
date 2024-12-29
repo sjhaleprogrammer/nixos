@@ -32,8 +32,8 @@
             #system
             ./systems/GV302XI/configuration.nix 
 
-            #compositer 
-            ./compositers/gnome.nix
+            #compositor
+            ./compositors/gnome.nix
 
 
             #virtualization
