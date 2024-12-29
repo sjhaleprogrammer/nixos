@@ -2,11 +2,6 @@
 
 {
   
-  imports = [
-    #./../modules/home-manager/neovim/neovim.nix
-    ./../modules/home-manager/nixcord.nix
-  ];
-
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
 

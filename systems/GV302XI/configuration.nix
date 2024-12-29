@@ -9,13 +9,13 @@
 {
 
   imports = [
-    ./hardware-configuration.nix
-    ./kernel.nix
+    inputs.chaotic.nixosModules.default
     inputs.nixos-hardware.nixosModules.asus-flow-gv302x-amdgpu
     inputs.nixos-hardware.nixosModules.asus-flow-gv302x-nvidia
-    ./update-on-shutdown.nix
-    ./../../modules/nixpkgs/qemu.nix
-    ./../../modules/nixpkgs/podman.nix
+    ./hardware-configuration.nix
+    ./kernel.nix
+    ./../../modules/qemu.nix
+    ./../../modules/podman.nix
   ];
 
   

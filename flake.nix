@@ -1,6 +1,76 @@
 {
   description = "Nixos config flake";
 
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nixos-hardware,
+      nixcord,
+      chaotic,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      
+    in
+    {
+      nixosConfigurations = {
+
+        samuel-gnome = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs system;
+          };
+          modules = [
+            #system
+            ./systems/GV302XI/configuration.nix 
+
+            #compositers 
+            ./modules/gnome.nix
+
+
+            home-manager.nixosModules.home-manager #user
+            {
+              home-manager.sharedModules = [
+                #theme
+                #./modules/macos-theme/gnome-macos-theme-dark.nix #gnometheme
+                
+                
+                #terminal
+
+
+                
+                #nixcord
+                inputs.nixcord.homeManagerModules.nixcord
+                ./modules/nixcord.nix 
+
+
+
+              ];
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.samuel = import ./users/samuel.nix { inherit pkgs system; };
+            }
+            
+          ];
+        };
+
+
+        # TODO: Add other configurations here if needed
+
+
+        
+      };
+  };
+
+
 
   nixConfig = {
     substituters = [
@@ -39,58 +109,7 @@
 
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      nixos-hardware,
-      nixcord,
-      chaotic,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      
-    in
-    {
-      nixosConfigurations = {
 
-        samuel = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs system;
-          };
-          modules = [
-            ./systems/GV302XI/configuration.nix #system
-            ./modules/nixpkgs/gnome.nix #compositer
-            chaotic.nixosModules.default
-            home-manager.nixosModules.home-manager #user
-            {
-              home-manager.sharedModules = [
-                #./modules/home-manager/macos-theme/gnome-macos-theme-dark.nix #gnometheme
-                inputs.nixcord.homeManagerModules.nixcord
-              ];
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.samuel = import ./users/samuel.nix;
-            }
-            
-          ];
-        };
-
-
-        # TODO: Add other configurations here if needed
-
-
-        
-      };
-  };
      
 
 }
