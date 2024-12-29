@@ -37,8 +37,8 @@
 
 
             #virtualization
-            ./modules/qemu.nix
-            ./modules/podman.nix
+            ./nixpkgs/qemu.nix
+            ./nixpkgs/podman.nix
 
             #userspace
             home-manager.nixosModules.home-manager #user
