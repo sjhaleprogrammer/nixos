@@ -76,6 +76,8 @@
 
     gnome-tweaks
     
+    gnome-themes-extra
+    
     #video player
     celluloid
 

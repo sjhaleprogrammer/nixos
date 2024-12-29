@@ -3,7 +3,7 @@
 
   boot = {
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
 
     kernelParams = [
       "video=DP-6:1920x1080@239.76"

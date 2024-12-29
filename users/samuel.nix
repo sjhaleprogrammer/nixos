@@ -5,7 +5,6 @@
   imports = [
     #./../modules/home-manager/neovim/neovim.nix
     ./../modules/home-manager/nixcord.nix
-    ./../modules/home-manager/macos-theme/gnome-macos-theme-dark.nix
   ];
 
   # Let home Manager install and manage itself.
