@@ -14,8 +14,7 @@
     inputs.nixos-hardware.nixosModules.asus-flow-gv302x-nvidia
     ./hardware-configuration.nix
     ./kernel.nix
-    ./../../modules/qemu.nix
-    ./../../modules/podman.nix
+   
   ];
 
   
@@ -251,7 +250,7 @@
 
   };
 
-
+  #testing vm settings
   virtualisation.vmVariant = {
     # following configuration is added only when building VM with build-vm
     virtualisation = {

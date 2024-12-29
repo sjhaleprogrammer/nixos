@@ -32,15 +32,20 @@
             #system
             ./systems/GV302XI/configuration.nix 
 
-            #compositers 
-            ./modules/gnome.nix
+            #compositer 
+            ./compositers/gnome.nix
 
 
+            #virtualization
+            ./modules/qemu.nix
+            ./modules/podman.nix
+
+            #userspace
             home-manager.nixosModules.home-manager #user
             {
               home-manager.sharedModules = [
                 #theme
-                #./modules/macos-theme/gnome-macos-theme-dark.nix #gnometheme
+                #./modules/macos-theme/gnome-macos-theme-dark.nix 
                 
                 
                 #terminal
