@@ -45,7 +45,7 @@
             {
               home-manager.sharedModules = [
                 #theme
-                ./themes/gnome/adwaita/adwaita-dark.nix 
+                ./themes/gnome/adwaita/adwaita-dark.nix
                 #./themes/gnome/macos-theme/macos-theme-dark.nix 
                 
                 
