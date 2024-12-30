@@ -7,8 +7,8 @@
       nixpkgs,
       home-manager,
       nixos-hardware,
-      nixcord,
       chaotic,
+      ghostty,
       ...
     }@inputs:
     let
@@ -36,7 +36,7 @@
             ./compositors/gnome.nix
 
 
-            #virtualization
+            #nixpkgs
             ./nixpkgs/qemu.nix
             ./nixpkgs/podman.nix
 
@@ -45,7 +45,8 @@
             {
               home-manager.sharedModules = [
                 #theme
-                #./modules/macos-theme/gnome-macos-theme-dark.nix 
+                ./themes/gnome/adwaita/adwaita-dark.nix 
+                #./themes/gnome/macos-theme/macos-theme-dark.nix 
                 
                 
                 #terminal
@@ -53,7 +54,6 @@
 
                 
                 #nixcord
-                inputs.nixcord.homeManagerModules.nixcord
                 ./home-manager/nixcord.nix 
 
 
@@ -61,7 +61,7 @@
               ];
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.samuel = import ./users/samuel.nix { inherit pkgs system; };
+              home-manager.users.samuel = import ./users/samuel.nix { inherit pkgs inputs system; };
             }
             
           ];
@@ -99,19 +99,22 @@
   };
 
   inputs = {
-    #nixos
+    #nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixos-hardware.url = "github:sjhaleprogrammer/nixos-hardware/master";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    ghostty.url = "github:ghostty-org/ghostty";
     
-    #modules
+
+
+    #home-manager
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:sjhaleprogrammer/nixos-hardware/master";
     nixcord.url = "github:kaylorben/nixcord";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-
-
+    ghostty-hm-module.url = "github:clo4/ghostty-hm-module";
+    
   };
 
 

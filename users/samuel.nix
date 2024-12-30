@@ -1,6 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
+
+  imports = [
+    inputs.nixcord.homeManagerModules.nixcord
+    inputs.ghostty-hm-module.homeModules.default
+  ];
   
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -14,9 +19,6 @@
 
   home.packages = with pkgs; [
   
-  
-    #terminal
-    mate.mate-terminal
     
     #browser
     firefox
@@ -41,7 +43,6 @@
   fonts.fontconfig.enable = true;
 
 
-
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
@@ -53,6 +54,14 @@
       };
       credential.helper = "${pkgs.git-credential-manager}/bin/git-credential-manger";
     };
+  };
+
+
+
+  programs.ghostty = {
+    enable = true;
+    package = inputs.ghostty.packages.x86_64-linux.default;
+    shellIntegration.enableZshIntegration = true;
   };
 
   programs.zsh = {
@@ -78,52 +87,6 @@
     enable = true;
   };
   
-  dconf.settings = {
-    "org/mate/terminal/profiles/default" = {
-      font = "JetBrainsMono Nerd Font 13";
-      title = "samuel";
-      default-show-menubar = false;
-      
-    };
-  };
-
-  /*
-    gtk = {
-      enable = true;
-
-      iconTheme = {
-        name = "Adwaita";
-        package = pkgs.adwaita-icon-theme;
-      };
-
-      theme = {
-        name = "Adwaita";
-        package = pkgs.gnome-themes-extra;
-      };
-
-    };
-  */
-
-  /*
-    home.pointerCursor = let
-      getFrom = url: hash: name: {
-        gtk.enable = true;
-        x11.enable = true;
-        name = name;
-        size = 26;
-        package = pkgs.runCommand "moveUp" { } ''
-          mkdir -p $out/share/icons
-          ln -s ${
-            pkgs.fetchzip {
-              url = url;
-              hash = hash;
-            }
-          } $out/share/icons/${name}
-        '';
-      };
-    in getFrom
-    "https://github.com/manu-mannattil/adwaita-cursors/releases/download/v1.2/adwaita-cursors.tar.gz"
-    "sha256-zKa55zn4UO/cCTx2Es0xKxUwjFe5/k5xWI9RLJYpvsQ=" "Adwaita";
-  */
+  
 
 }
