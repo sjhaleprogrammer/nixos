@@ -14,17 +14,17 @@
   home.username = "samuel";
   home.homeDirectory = "/home/samuel";
   home.stateVersion = "23.05";
-  
+
   services.home-manager.autoUpgrade.enable = true;
   services.home-manager.autoUpgrade.frequency = "daily";
 
   home.packages = with pkgs; [
-  
-    
+
+
     #browser
     firefox
 
-    
+
 
     #fonts
     font-awesome
@@ -48,7 +48,11 @@
       safe = {
         directory = "/etc/nixos";
       };
-      credential.helper = "${pkgs.git-credential-manager}/bin/git-credential-manger";
+      credential = {
+        credentialStore = "secretservice";
+        helper = "${pkgs.git-credential-manager}/bin/git-credential-manager";
+      };
+      push.autoSetupRemote = true;
     };
   };
 
@@ -99,7 +103,7 @@
                 ### zed.dev models { claude-3-5-sonnet-latest } requires github connected
                 ### anthropic models { claude-3-5-sonnet-latest claude-3-haiku-latest claude-3-opus-latest  } requires API_KEY
                 ### copilot_chat models { gpt-4o gpt-4 gpt-3.5-turbo o1-preview } requires github connected
-                default_model = { 
+                default_model = {
                     provider = "zed.dev";
                     model = "claude-3-5-sonnet-latest";
                 };
@@ -133,7 +137,7 @@
                 line_height = "comfortable";
                 option_as_meta = false;
                 button = false;
-                shell = "system"; 
+                shell = "system";
                 #{
                 #                    program = "zsh";
                 #};
@@ -153,15 +157,15 @@
                         path_lookup = true;
                     };
                 };
-                nix = { 
-                    binary = { 
-                        path_lookup = true; 
-                    }; 
+                nix = {
+                    binary = {
+                        path_lookup = true;
+                    };
                 };
 
                 elixir-ls = {
                     binary = {
-                        path_lookup = true; 
+                        path_lookup = true;
                     };
                     settings = {
                         dialyzerEnabled = true;
@@ -207,7 +211,7 @@
         };
 
     };
-  
-  
+
+
 
 }
