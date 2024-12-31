@@ -4,12 +4,11 @@
   programs.nixcord = {
     enable = true;
     discord.enable = true;
-    quickCss = "some CSS";
+    discord.package = pkgs.discord-canary;
     config = {
-      useQuickCss = true;
-      themeLinks = [
-        "https://refact0r.github.io/system24/theme/system24.theme.css"
-      ];
+      #themeLinks = [
+        #"https://refact0r.github.io/system24/theme/system24.theme.css"
+      #];
       frameless = false;
       plugins = {
         alwaysTrust.enable = true;

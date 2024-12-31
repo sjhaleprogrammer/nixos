@@ -34,7 +34,7 @@
 
             #compositor
             ./compositors/gnome.nix
-
+            
 
             #nixpkgs
             ./nixpkgs/qemu.nix
@@ -43,25 +43,29 @@
             #userspace
             home-manager.nixosModules.home-manager #user
             {
-              home-manager.sharedModules = [
-                #theme
-                ./themes/gnome/adwaita/adwaita-dark.nix
-                #./themes/gnome/macos-theme/macos-theme-dark.nix 
-                
-                
-                #terminal
+              home-manager = {
+              
+                sharedModules = [
+                  
+                  #theme
+                  ./themes/gnome/adwaita/adwaita-dark.nix
+                  #./themes/gnome/macos-theme/macos-theme-dark.nix 
+                  
+                  #terminal
+                  
+                  #nixcord
+                  ./home-manager/nixcord.nix 
 
 
-                
-                #nixcord
-                ./home-manager/nixcord.nix 
+                ];
+                extraSpecialArgs = {
+                  inherit inputs system;
+                };
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.samuel = import ./users/samuel.nix;
 
-
-
-              ];
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.samuel = import ./users/samuel.nix { inherit pkgs inputs system; };
+              };
             }
             
           ];

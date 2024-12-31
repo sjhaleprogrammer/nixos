@@ -14,7 +14,6 @@
     inputs.nixos-hardware.nixosModules.asus-flow-gv302x-nvidia
     ./hardware-configuration.nix
     ./kernel.nix
-   
   ];
 
   
