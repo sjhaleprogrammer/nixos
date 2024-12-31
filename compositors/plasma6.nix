@@ -7,7 +7,7 @@
 
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true; 
+  services.desktopManager.plasma6.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -27,8 +27,7 @@
   environment.systemPackages = with pkgs; [
 
 
-    #terminal
-    ptyxis
+
 
     #video player
     celluloid
@@ -36,19 +35,17 @@
     #zsh shit
     starship
 
-    #recording 
+    #recording
     obs-studio
 
-    #browser
-    firefox
+
 
     #xbox controllers
     xboxdrv
 
-    #discord
-    vesktop
 
-    #school shit 
+
+    #school shit
 
     #libraries
     ntfs3g
@@ -123,6 +120,6 @@
     };
   };
 
- 
+
 
 }

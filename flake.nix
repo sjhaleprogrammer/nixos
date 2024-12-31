@@ -13,28 +13,28 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      
+
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
-      
+
     in
     {
       nixosConfigurations = {
 
-        samuel-gnome = nixpkgs.lib.nixosSystem {
+        samuel-plasma = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit inputs system;
           };
           modules = [
             #system
-            ./systems/GV302XI/configuration.nix 
+            ./systems/GV302XI/configuration.nix
 
             #compositor
-            ./compositors/gnome.nix
-            
+            ./compositors/plasma6.nix
+
 
             #nixpkgs
             ./nixpkgs/qemu.nix
@@ -44,30 +44,30 @@
             home-manager.nixosModules.home-manager #user
             {
               home-manager = {
-              
+
                 sharedModules = [
-                  
+
                   #theme
-                  ./themes/gnome/adwaita/adwaita-dark.nix
-                  #./themes/gnome/macos-theme/macos-theme-dark.nix 
-                  
+                  ./themes/plasma6/macos-theme/macos-theme-dark.nix
+
                   #terminal
-                  
+
                   #nixcord
-                  ./home-manager/nixcord.nix 
+                  ./home-manager/nixcord.nix
 
 
                 ];
                 extraSpecialArgs = {
                   inherit inputs system;
                 };
+                backupFileExtension = "backup";
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.samuel = import ./users/samuel.nix;
 
               };
             }
-            
+
           ];
         };
 
@@ -75,7 +75,6 @@
         # TODO: Add other configurations here if needed
 
 
-        
       };
   };
 
@@ -108,7 +107,7 @@
     nixos-hardware.url = "github:sjhaleprogrammer/nixos-hardware/master";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     ghostty.url = "github:ghostty-org/ghostty";
-    
+
 
 
     #home-manager
@@ -118,10 +117,10 @@
     };
     nixcord.url = "github:kaylorben/nixcord";
     ghostty-hm-module.url = "github:clo4/ghostty-hm-module";
-    
+
   };
 
 
-     
+
 
 }

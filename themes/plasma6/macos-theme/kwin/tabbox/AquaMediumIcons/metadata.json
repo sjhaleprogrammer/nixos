@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "KWin/WindowSwitcher",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "adhemarks@gmail.com",
+                "Name": "Ademir"
+            }
+        ],
+        "Description": "A window switcher layout using large icons to represent the window",
+        "Icon": "preferences-system-windows-switcher-big-icons",
+        "Id": "AquaMediumIcons",
+        "License": "GPL",
+        "Name": "Aqua Medium Icons"
+    }
+}

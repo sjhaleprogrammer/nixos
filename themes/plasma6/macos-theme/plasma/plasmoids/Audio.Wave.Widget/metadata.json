@@ -1,0 +1,23 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "zayronxio"
+            }
+        ],
+        "Name": "Audio Wave Widget",
+        "Id": "Audio.Wave.Widget",
+        "Description": "widget to display audio track information along with audio bars representing different frequencies",
+        "Category": "Utilities",
+        "Icon": "music-player",
+        "EnabledByDefault": true,
+        "License": "GPL-3.0+",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "0.3",
+        "Website": "https://store.kde.org/p/2142681"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-MainScript": "ui/main.qml"
+}

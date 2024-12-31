@@ -16,7 +16,7 @@
     ./kernel.nix
   ];
 
-  
+
 
 
   system = {
@@ -60,7 +60,7 @@
       #electron
       #NIXOS_OZONE_WL = "1"; # in the future issue -> https://github.com/electron/electron/issues/44540
       ELECTRON_OZONE_PLATFORM_HINT = "x11";
-      
+
       XDG_CACHE_HOME = "$HOME/.cache";
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_DATA_HOME = "$HOME/.local/share";
@@ -73,7 +73,7 @@
     };
 
   };
-  
+
 
 
   services = {
@@ -180,7 +180,7 @@
       groups = {
         samuel.gid = 1000;
       };
-  
+
       users.samuel = {
         isNormalUser = true;
         home = "/home/samuel";
@@ -253,8 +253,8 @@
   virtualisation.vmVariant = {
     # following configuration is added only when building VM with build-vm
     virtualisation = {
-      memorySize =  8192; 
-      cores = 8;         
+      memorySize =  8192;
+      cores = 8;
     };
     virtualisation.resolution = {
       x = 1280;
@@ -272,6 +272,6 @@
     ];
   };
 
-  
+
 
 }
