@@ -21,8 +21,29 @@
     };
   };
 
+  gtk = {
+
+    enable = true;
+
+    cursorTheme = {
+      name = "macOS";
+      package = pkgs.apple-cursor;
+      size = 32;
+    };
+
+    iconTheme = {
+      name = "WhiteSur-dark";
+    };
+
+    theme = {
+      name = "WhiteSur-Dark";
+    };
+
+  };
 
   home.packages = with pkgs; [
+
+     whitesur-icon-theme
      application-title-bar
      plasma-panel-spacer-extended
   ];
@@ -67,11 +88,6 @@
       recursive = true;
     };
 
-    ".local/share/icons" = {
-      source = ./icons;
-      recursive = true;
-    };
-
     #cursor
     ".local/share/.icons" = {
       source = ./.icons;
@@ -87,16 +103,6 @@
     };
 
 
-
-
-
-    ".gtkrc-2.0" = {
-      source = ./.gtkrc-2.0;
-    };
-
-    ".gtkrc-2.0-kde4" = {
-      source = ./.gtkrc-2.0-kde4;
-    };
 
 
 
