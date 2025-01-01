@@ -25,11 +25,7 @@
 
     enable = true;
 
-    cursorTheme = {
-      name = "macOS";
-      package = pkgs.apple-cursor;
-      size = 32;
-    };
+
 
     iconTheme = {
       name = "WhiteSur-dark";

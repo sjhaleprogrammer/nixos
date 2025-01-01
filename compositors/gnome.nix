@@ -22,7 +22,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
-  # And ensure gnome-settings-daemon udev rules are enabled 
+  # And ensure gnome-settings-daemon udev rules are enabled
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 
   #minimal gnome
@@ -75,19 +75,19 @@
     switcheroo-control # dbus for dual gpu
 
     gnome-tweaks
-    
+
     gnome-themes-extra
-    
+
     #video player
     celluloid
 
-    #recording 
+    #recording
     obs-studio
 
 
     #xbox controllers
     xboxdrv
- 
+
 
     #libraries
     ntfs3g
@@ -140,7 +140,7 @@
 
   ];
 
-  #gnome exclusive services
+  #dual gpu support services
   services.switcherooControl.enable = true;
 
 }
