@@ -1,10 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
+
+  imports = [
+    inputs.nixcord.homeManagerModules.nixcord
+  ];
+
   programs.nixcord = {
     enable = true;
     discord.enable = true;
-    discord.package = pkgs.discord-canary;
+    #discord.package = pkgs.discord-canary;
     config = {
       #themeLinks = [
         #"https://refact0r.github.io/system24/theme/system24.theme.css"
@@ -33,4 +38,3 @@
     };
   };
 }
-

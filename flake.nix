@@ -48,7 +48,7 @@
                 sharedModules = [
 
                   #theme
-                  ./themes/plasma6/macos-theme/macos-theme-dark.nix
+                  #./themes/plasma6/macos-theme/macos-theme-dark.nix
 
                   #terminal
 
