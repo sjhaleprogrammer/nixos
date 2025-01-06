@@ -40,10 +40,7 @@
 
 
 
-    #xbox controllers
-    xboxdrv
-
-
+  
 
     #school shit
 

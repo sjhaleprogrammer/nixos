@@ -89,6 +89,8 @@
       wireplumber.enable = true;
     };
 
+    pulseaudio.enable = false;
+
     #touchpad
     libinput.enable = true;
 
@@ -134,7 +136,7 @@
     };
 
     logitech.wireless.enable = true;
-    pulseaudio.enable = false;
+ 
 
     #Bluetooth
     #bluetooth.enable = true;

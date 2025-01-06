@@ -8,7 +8,6 @@
       home-manager,
       nixos-hardware,
       chaotic,
-      ghostty,
       ...
     }@inputs:
     let
@@ -103,21 +102,17 @@
 
   inputs = {
     #nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:sjhaleprogrammer/nixos-hardware/master";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    ghostty.url = "github:ghostty-org/ghostty";
-
-
+    
 
     #home-manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord.url = "github:kaylorben/nixcord";
-    ghostty-hm-module.url = "github:clo4/ghostty-hm-module";
 
   };
 

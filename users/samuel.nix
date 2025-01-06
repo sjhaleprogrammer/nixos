@@ -27,9 +27,8 @@
     iosevka
     noto-fonts-cjk-sans
     jetbrains-mono
-    nerdfonts
     cascadia-code
-  ];
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   #dont touch
   fonts.fontconfig.enable = true;
@@ -53,14 +52,8 @@
   };
 
 
-  imports = [
-    inputs.ghostty-hm-module.homeModules.default
-  ];
-  programs.ghostty = {
-    enable = true;
-    package = inputs.ghostty.packages.x86_64-linux.default;
-    shellIntegration.enableZshIntegration = true;
-  };
+  
+  programs.ghostty.enable = true;
 
   programs.zsh = {
     enable = true;

@@ -85,8 +85,7 @@
     obs-studio
 
 
-    #xbox controllers
-    xboxdrv
+    
 
 
     #libraries
