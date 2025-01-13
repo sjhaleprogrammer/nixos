@@ -22,7 +22,7 @@
     {
       nixosConfigurations = {
 
-        samuel-plasma = nixpkgs.lib.nixosSystem {
+        gnome-laptop = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit inputs system;
@@ -32,7 +32,7 @@
             ./systems/GV302XI/configuration.nix
 
             #compositor
-            ./compositors/plasma6.nix
+            ./compositors/gnome.nix
 
 
             #nixpkgs
@@ -47,7 +47,7 @@
                 sharedModules = [
 
                   #theme
-                  #./themes/plasma6/macos-theme/macos-theme-dark.nix
+                  ./themes/gnome/macos-theme/macos-theme-dark.nix
 
                   #terminal
 
@@ -86,16 +86,12 @@
       # nix community's cache server
       "https://nix-community.cachix.org"
 
-      # sjhaleprogrammer's cache server
-      "https://sjhaleprogrammer.cachix.org"
-
       # Chaotic's Nyx
       "https://chaotic-nyx.cachix.org/"
     ];
     trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "sjhaleprogrammer.cachix.org-1:Yxwp/6ytc91ydFbxWE8JunnPioBLb5VbdIn+jnMtHkg="
       "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8"
     ];
   };
