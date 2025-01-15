@@ -184,14 +184,6 @@
 
   home.activation = {
     
-
-    rounded-window-corners-reborn = ''
-       ${pkgs.dconf}/bin/dconf write /org/gnome/shell/extensions/rounded-window-corners-reborn/global-rounded-corner-settings "@a{sv} {'padding': <@a{sv} {'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keepRoundedCorners': <@a{sv} {'maximized': <true>, 'fullscreen': <false>}>, 'borderRadius': <uint32 12>, 'smoothing': <0.0>, 'enabled': <true>}"
-
-    '';
-    
-    
-    
     installThemes = lib.hm.dag.entryAfter [ "writeBoundary" "installPackages" "git" ] ''
       # Check for internet connectivity by pinging a reliable host
       if ${pkgs.iputils}/bin/ping -c 1 8.8.8.8 >/dev/null 2>&1; then
