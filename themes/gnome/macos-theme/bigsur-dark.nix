@@ -193,49 +193,54 @@
     
     
     installThemes = lib.hm.dag.entryAfter [ "writeBoundary" "installPackages" "git" ] ''
-      	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git 
-      	    ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-firefox-theme.git
-      	    
-      	    theme_dir="$HOME/WhiteSur-gtk-theme"
-      	    install_script="$theme_dir/install.sh"
+      # Check for internet connectivity by pinging a reliable host
+      if ${pkgs.iputils}/bin/ping -c 1 8.8.8.8 >/dev/null 2>&1; then
+        ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git 
+        ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-firefox-theme.git
+        
+        theme_dir="$HOME/WhiteSur-gtk-theme"
+        install_script="$theme_dir/install.sh"
 
-      	    if [ -f "$install_script" ]; then
-      		    echo "Attempting to install WhiteSur GTK Theme..."
+        if [ -f "$install_script" ]; then
+          echo "Attempting to install WhiteSur GTK Theme..."
 
-              # Ensure the script is executable
-              chmod +x "$install_script"
+          # Ensure the script is executable
+          chmod +x "$install_script"
 
-              # Set up the required library paths and link them to the environment
-              export PATH=${pkgs.sassc}/bin:${pkgs.which}/bin:${pkgs.getent}/bin:${pkgs.util-linux}/bin:${pkgs.glib.dev}/bin:${pkgs.libxml2.bin}/bin:${pkgs.sudo}/bin:$PATH
+          # Set up the required library paths and link them to the environment
+          export PATH=${pkgs.sassc}/bin:${pkgs.which}/bin:${pkgs.getent}/bin:${pkgs.util-linux}/bin:${pkgs.glib.dev}/bin:${pkgs.libxml2.bin}/bin:${pkgs.sudo}/bin:$PATH
 
-              # Run the installation script as the current user directly
-              cd "$theme_dir"
-              ${pkgs.bash}/bin/bash -c "bash $install_script -l" 
-              
-              # Clean up after installation
-              rm -rf "$theme_dir"
-                else
-              echo "Theme installation script not found at $install_script"
-                fi
+          # Run the installation script as the current user directly
+          cd "$theme_dir"
+          ${pkgs.bash}/bin/bash -c "bash $install_script -l" 
+          
+          # Clean up after installation
+          rm -rf "$theme_dir"
+        else
+          echo "Theme installation script not found at $install_script"
+        fi
 
-      	    
-      	    theme_dir="$HOME/WhiteSur-firefox-theme"
-      	    install_script="$theme_dir/install.sh"
+        
+        theme_dir="$HOME/WhiteSur-firefox-theme"
+        install_script="$theme_dir/install.sh"
 
-      	    if [ -f "$install_script" ]; then
-      	      echo "Attempting to install WhiteSur Firefox Theme..."
-      	      
-      	      # Ensure the script is executable
-      	      chmod +x "$install_script"
-      	      
-      	      # Run the installation script as the current user directly
-      	      cd "$theme_dir"
-      	      ${pkgs.bash}/bin/bash -c "export PATH=${pkgs.getent}/bin:${pkgs.firefox}/bin:${pkgs.sudo}/bin:${pkgs.gawk}/bin:\$PATH; bash $install_script -m"
-      	      rm -rf "$theme_dir"
-      	    else
-      	      echo "Theme installation script not found at $install_script"
-      	    fi
-      	  '';
+        if [ -f "$install_script" ]; then
+          echo "Attempting to install WhiteSur Firefox Theme..."
+          
+          # Ensure the script is executable
+          chmod +x "$install_script"
+          
+          # Run the installation script as the current user directly
+          cd "$theme_dir"
+          ${pkgs.bash}/bin/bash -c "export PATH=${pkgs.getent}/bin:${pkgs.firefox}/bin:${pkgs.sudo}/bin:${pkgs.gawk}/bin:\$PATH; bash $install_script -m"
+          rm -rf "$theme_dir"
+        else
+          echo "Theme installation script not found at $install_script"
+        fi
+      else
+        echo "No internet connection available. Skipping theme installation."
+      fi
+    '';
 
   };
 

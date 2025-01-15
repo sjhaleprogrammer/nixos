@@ -47,7 +47,7 @@
                 sharedModules = [
 
                   #theme
-                  ./themes/gnome/macos-theme/macos-theme-dark.nix
+                  ./themes/gnome/macos-theme/bigsur-dark.nix
 
                   #terminal
 
