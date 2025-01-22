@@ -8,7 +8,6 @@
       home-manager,
       nixos-hardware,
       chaotic,
-      nix-proton-cachyos,
       ...
     }@inputs:
     let
@@ -40,7 +39,7 @@
             ./nixpkgs/qemu.nix
             ./nixpkgs/podman.nix
             #./nixpkgs/darling.nix
-            ./nixpkgs/steam.nix
+            #./nixpkgs/steam.nix
 
             #home-manager
             home-manager.nixosModules.home-manager #user
@@ -99,7 +98,6 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8"
-      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
     ];
   };
 
@@ -108,7 +106,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:sjhaleprogrammer/nixos-hardware/master";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    nix-proton-cachyos.url = "github:kimjongbing/nix-proton-cachyos";
     
 
     #home-manager
