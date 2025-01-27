@@ -66,6 +66,7 @@
       color-scheme = "prefer-dark";
 
       clock-format = "12h";
+      clock-show-weekday = true;
       enable-hot-corners = false;
 
 
