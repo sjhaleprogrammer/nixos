@@ -197,44 +197,44 @@
   };
 
 
-  systemd.user.services.installThemes = {
-    Unit = {
-      After = [ "local-fs.target network.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.writeShellScript "installThemes" ''
-        ${pkgs.git}/bin/git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git 
-        
-        theme_dir="$HOME/WhiteSur-gtk-theme"
-        install_script="$theme_dir/install.sh"
-
-        if [ -f "$install_script" ]; then
-          echo "Attempting to install WhiteSur GTK Theme..."
-
-          # Ensure the script is executable
-          chmod +x "$install_script"
-
-          # Run the installation script as the current user directly
-          cd "$theme_dir"
-          bash $install_script -l 
-          
-          # Clean up after installation
-          rm -rf "$theme_dir"
-        else
-          echo "Theme installation script not found at $install_script"
-        fi
-
-      ''}";
-      Environment = "PATH=${pkgs.sassc}/bin:${pkgs.coreutils}/bin:${pkgs.bash}/bin:${pkgs.which}/bin:${pkgs.getent}/bin:${pkgs.util-linux}/bin:${pkgs.glib.dev}/bin:${pkgs.libxml2.bin}/bin:${pkgs.sudo}/bin:$PATH";
-      Type = "oneshot";
-
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-    
-    
+systemd.user.services.installThemes = {
+  Unit = {
+    After = [ "local-fs.target" "network.target" ];
   };
+  Service = {
+    ExecStart = "${pkgs.writeShellScript "installThemes" ''
+      # Create a temporary directory for the clone
+      clone_dir="$HOME/WhiteSur-gtk-theme"
+      
+      # Clone the repository
+      git clone https://github.com/sjhaleprogrammer/WhiteSur-gtk-theme-no-setterm "$clone_dir"
+      
+      # Change to the cloned directory
+      cd "$clone_dir" || exit 1
+      
+      # Make all files executable recursively
+      find . -type f -exec chmod +x {} \;
+      
+      if [ -f "./install.sh" ]; then
+        echo "Attempting to install WhiteSur GTK Theme..."
+        
+        # Run the installation script from within its directory
+        bash "./install.sh" -l
+        # Clean up after installation
+        cd "$HOME"
+        rm -rf "$clone_dir"
+      else
+        echo "Theme installation script not found"
+        exit 1
+      fi
+    ''}";
+    Environment = "PATH=${pkgs.sassc}/bin:${pkgs.toybox}/bin:${pkgs.findutils}/bin:${pkgs.git}/bin:${pkgs.coreutils}/bin:${pkgs.bash}/bin:${pkgs.which}/bin:${pkgs.getent}/bin:${pkgs.util-linux}/bin:${pkgs.glib.dev}/bin:${pkgs.libxml2.bin}/bin:${pkgs.sudo}/bin:$PATH REPO_DIR=$HOME/WhiteSur-gtk-theme SYSTEMD_LOG_LEVEL=debug";
+    Type = "oneshot";
+  };
+  Install = {
+    WantedBy = [ "default.target" ];
+  };
+};
 
 
 }
