@@ -220,6 +220,9 @@ systemd.user.services.installThemes = {
         
         # Run the installation script from within its directory
         bash "./install.sh" -l
+
+        bash "./tweaks.sh" -f darker 
+
         # Clean up after installation
         cd "$HOME"
         rm -rf "$clone_dir"
@@ -228,7 +231,11 @@ systemd.user.services.installThemes = {
         exit 1
       fi
     ''}";
-    Environment = "PATH=${pkgs.sassc}/bin:${pkgs.toybox}/bin:${pkgs.findutils}/bin:${pkgs.git}/bin:${pkgs.coreutils}/bin:${pkgs.bash}/bin:${pkgs.which}/bin:${pkgs.getent}/bin:${pkgs.util-linux}/bin:${pkgs.glib.dev}/bin:${pkgs.libxml2.bin}/bin:${pkgs.sudo}/bin:$PATH REPO_DIR=$HOME/WhiteSur-gtk-theme SYSTEMD_LOG_LEVEL=debug";
+    Environment = ''
+      PATH=${pkgs.sassc}/bin:${pkgs.toybox}/bin:${pkgs.findutils}/bin:${pkgs.git}/bin:${pkgs.coreutils}/bin:${pkgs.bash}/bin:${pkgs.which}/bin:${pkgs.getent}/bin:${pkgs.util-linux}/bin:${pkgs.glib.dev}/bin:${pkgs.libxml2.bin}/bin:${pkgs.sudo}/bin:${pkgs.firefox}/bin:$PATH
+      REPO_DIR=$HOME/WhiteSur-gtk-theme
+      SYSTEMD_LOG_LEVEL=debug
+    '';
     Type = "oneshot";
   };
   Install = {
