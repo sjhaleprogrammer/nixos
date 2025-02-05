@@ -18,14 +18,16 @@
         config.allowUnfree = true;
       };
 
+      #configuration user    
+      user = "samuel";
+
     in
     {
       nixosConfigurations = {
 
         gnome-laptop = nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = {
-            inherit inputs system;
+            inherit inputs system user;
           };
           modules = [
             #system
@@ -59,12 +61,12 @@
 
                 ];
                 extraSpecialArgs = {
-                  inherit inputs system;
+                  inherit inputs system user;
                 };
                 backupFileExtension = "backup";
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.samuel = import ./users/samuel.nix;
+                users.${user} = import ./users/${user}.nix;
 
               };
             }

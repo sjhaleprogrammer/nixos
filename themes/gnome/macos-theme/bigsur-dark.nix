@@ -135,6 +135,17 @@
       panel-size = 0;
       startup-status = 0;
       window-demands-attention-focus = true;
+      workspace = false;
+      workspace-peek = false;
+      workspace-popup = false;
+      workspaces-in-app-grid = false;
+      workspace-switcher-should-show = false;
+      workspace-thumbnail-to-main-view  = false;
+      workspace-wrap-around = false;
+      power-icon = true;
+      quick-settings = true;
+      quick-settings-dark-mode = true;
+
     };
 
     #gtk4-ding extension
@@ -184,6 +195,12 @@
       show-show-apps-button = true;
       transparency-mode = "DYNAMIC";
       workspace-agnostic-urgent-windows = true;
+    };
+
+     #search light extension
+    "org/gnome/shell/extensions/search-light" = {
+      shortcut-search = "['<Control>space']";
+      show-panel-icon = true;
     };
 
   };

@@ -3,6 +3,7 @@
   config,
   lib,
   inputs,
+  user,
   ...
 }:
 
@@ -179,21 +180,19 @@
   #users
   users = {
       mutableUsers = true;
-      groups = {
-        samuel.gid = 1000;
-      };
-
-      users.samuel = {
+      groups.${user} = {};
+      users.${user} = {
         isNormalUser = true;
-        home = "/home/samuel";
+        home = "/home/${user}";
         #password = "test";
         shell = pkgs.zsh;
         uid = 1000;
-        group = "samuel";
+        group = user;
         extraGroups = [
           "wheel"
           "networkmanager"
           "gamemode"
+          "podman" 
         ]; # Enable ‘sudo’ for the user.
       };
   };
