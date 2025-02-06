@@ -199,7 +199,7 @@
 
      #search light extension
     "org/gnome/shell/extensions/search-light" = {
-      shortcut-search = "['<Control>space']";
+      #shortcut-search = ['<Control>space'];
       show-panel-icon = true;
     };
 

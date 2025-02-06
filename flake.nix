@@ -20,6 +20,8 @@
 
       #configuration user    
       user = "samuel";
+      email = "samworlds1231337@gmail.com";
+      terminal = "ghostty";
 
     in
     {
@@ -36,10 +38,13 @@
             #compositor
             ./compositors/gnome.nix
 
-
-            #nixpkgs
+            #qemu
             ./nixpkgs/qemu.nix
+
+            #podman
             ./nixpkgs/podman.nix
+
+
             #./nixpkgs/darling.nix
             #./nixpkgs/steam.nix
 
@@ -54,6 +59,13 @@
                   ./themes/gnome/macos-theme/bigsur-dark.nix
 
                   #terminal
+                  ./home-manager/${terminal}.nix
+
+                  #git
+                  ./home-manager/git.nix
+
+                  #direnv
+                  ./home-manager/direnv.nix
 
                   #nixcord
                   ./home-manager/nixcord.nix
@@ -61,12 +73,12 @@
 
                 ];
                 extraSpecialArgs = {
-                  inherit inputs system user;
+                  inherit inputs system user email terminal;
                 };
                 backupFileExtension = "backup";
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.${user} = import ./users/${user}.nix;
+                users.${user} = import ./users/user.nix;
 
               };
             }
