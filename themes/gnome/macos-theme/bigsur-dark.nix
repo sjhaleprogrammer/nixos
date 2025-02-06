@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  terminal,
   ...
 }:
 
@@ -115,7 +116,7 @@
 
     #Logo menu extension
     "org/gnome/shell/extensions/Logo-menu" = {
-      menu-button-terminal = "mate-terminal";
+      menu-button-terminal = ${terminal};
       show-power-options = true;
     };
 
