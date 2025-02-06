@@ -116,7 +116,7 @@
 
     #Logo menu extension
     "org/gnome/shell/extensions/Logo-menu" = {
-      menu-button-terminal = ${terminal};
+      menu-button-terminal = "${terminal}";
       show-power-options = true;
     };
 
