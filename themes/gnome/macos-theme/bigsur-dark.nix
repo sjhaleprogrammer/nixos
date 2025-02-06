@@ -170,11 +170,11 @@
       custom-theme-shrink = true;
       customize-alphas = true;
       dance-urgent-applications = true;
-      dash-max-icon-size = 45;
+      dash-max-icon-size = 64;
       disable-overview-on-startup = true;
       dock-fixed = false;
       extend-height = false;
-      height-fraction = 1.0;
+      height-fraction = 0.90;
       hide-tooltip = false;
       hot-keys = false;
       icon-size-fixed = false;
