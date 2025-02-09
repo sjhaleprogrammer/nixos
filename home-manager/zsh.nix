@@ -5,6 +5,7 @@
   
   programs.zsh = {
       enable = true;
+      dotDir = ".";
       enableCompletion = true;
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
