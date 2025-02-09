@@ -56,7 +56,7 @@
                 sharedModules = [
 
                   #theme
-                  ./themes/gnome/macos-theme/bigsur-dark.nix
+                  ./themes/gnome/ubuntu/ubuntu-light.nix
 
                   #terminal
                   ./home-manager/${terminal}.nix
