@@ -17,12 +17,26 @@
     gnomeExtensions.gnome-40-ui-improvements
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     gnomeExtensions.dash-to-dock
+  
 
   ];
 
   dconf.settings = {
 
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = with pkgs.gnomeExtensions; [
+        user-themes.extensionUuid 
+        appindicator.extensionUuid
+        screen-rotate.extensionUuid
+        gnome-40-ui-improvements.extensionUuid
+        gtk4-desktop-icons-ng-ding.extensionUuid
+        dash-to-dock.extensionUuid
+      ];
+    };
+
     "org/gnome/desktop/interface" = {
+        accent-color = "orange";
         avatar-directories = [];
         can-change-accels = false;
         clock-format = "24h";
@@ -108,17 +122,6 @@
 
     };
 
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = with pkgs.gnomeExtensions; [
-        appindicator.extensionUuid
-        screen-rotate.extensionUuid
-        gnome-40-ui-improvements.extensionUuid
-        gtk4-desktop-icons-ng-ding.extensionUuid
-        dash-to-dock.extensionUuid
-      ];
-    };
-
     "org/gnome/shell/extensions/appindicator" = {
         custom-icons = [ ];
         icon-brightness = 0.0;
@@ -194,15 +197,15 @@
         apply-glossy-effect = true;
         autohide = true;
         autohide-in-fullscreen = false;
-        background-color = "rgb(0,0,0)";
-        background-opacity = 0.4;
+        background-color = "#ffffff";
+        background-opacity = 0.8;
         bolt-support = true;
         click-action = "focus-or-appspread";
-        custom-background-color = true;
+        custom-background-color = false;
         custom-theme-customize-running-dots = false;
         custom-theme-running-dots-border-color = "#ffffff";
         custom-theme-running-dots-border-width = 0;
-        custom-theme-running-dots-color = "rgb(198,70,0)";
+        custom-theme-running-dots-color = "#ffffff";
         custom-theme-shrink = true;
         customize-alphas = false;
         dance-urgent-applications = true;
@@ -260,7 +263,7 @@
         show-show-apps-button = true;
         show-trash = true;
         show-windows-preview = true;
-        transparency-mode = "FIXED";
+        transparency-mode = "DEFAULT";
         unity-backlit-items = false;
         workspace-agnostic-urgent-windows = true;
         workspace-agnostic-windows = true;
