@@ -195,15 +195,15 @@
         apply-glossy-effect = true;
         autohide = true;
         autohide-in-fullscreen = false;
-        background-color = "#ffffff";
-        background-opacity = 0.8;
+        background-color = "rgb(0,0,0)";
+        background-opacity = 0.4;
         bolt-support = true;
         click-action = "focus-or-appspread";
         custom-background-color = false;
         custom-theme-customize-running-dots = false;
         custom-theme-running-dots-border-color = "#ffffff";
         custom-theme-running-dots-border-width = 0;
-        custom-theme-running-dots-color = "#ffffff";
+        custom-theme-running-dots-color = "rgb(198,70,0)";
         custom-theme-shrink = true;
         customize-alphas = false;
         dance-urgent-applications = true;
@@ -261,7 +261,7 @@
         show-show-apps-button = true;
         show-trash = true;
         show-windows-preview = true;
-        transparency-mode = "DEFAULT";
+        transparency-mode = "FIXED";
         unity-backlit-items = false;
         workspace-agnostic-urgent-windows = true;
         workspace-agnostic-windows = true;
