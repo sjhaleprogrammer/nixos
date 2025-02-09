@@ -155,7 +155,6 @@
     
     #dash to dock extension
     "org/gnome/shell/extensions/dash-to-dock" = {
-        
         activate-single-window = true;
         always-center-icons = false;
         animate-show-apps = true;
@@ -199,7 +198,7 @@
         background-opacity = 0.4;
         bolt-support = true;
         click-action = "focus-or-appspread";
-        custom-background-color = false;
+        custom-background-color = true;
         custom-theme-customize-running-dots = false;
         custom-theme-running-dots-border-color = "#ffffff";
         custom-theme-running-dots-border-width = 0;
