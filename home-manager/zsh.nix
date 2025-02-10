@@ -9,6 +9,8 @@
       enableCompletion = true;
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
+
+      /*
       zplug = {
         enable = true;
         plugins = [
@@ -19,7 +21,7 @@
           }
         ];
       };
-
+      */
      
       history.size = 10000;
       history.ignoreAllDups = true;

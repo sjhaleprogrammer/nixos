@@ -7,6 +7,12 @@
 
 {
 
+  gtk = {
+    theme = {
+      name = "Yaru";
+    };
+  };
+
   home.packages = with pkgs; [
     ubuntu-sans
     ubuntu-sans-mono
@@ -117,7 +123,7 @@
         check-alive-timeout = 5000;
         draggable-border-width = 10;
         dynamic-workspaces = true;
-        edge-tiling = false;
+        edge-tiling = true;
         experimental-features = [];
         focus-change-on-pointer-rest = true;
         locate-pointer-key = "Control_L";

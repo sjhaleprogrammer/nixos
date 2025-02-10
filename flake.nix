@@ -56,7 +56,7 @@
                 sharedModules = [
 
                   #theme
-                  ./themes/gnome/ubuntu/ubuntu-light.nix
+                  ./themes/gnome/ubuntu/ubuntu-dark.nix
 
                   #terminal
                   ./home-manager/${terminal}.nix
