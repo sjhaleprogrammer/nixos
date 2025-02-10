@@ -78,6 +78,10 @@
 
     };
 
+    "org/gnome/deskop/a11y" = {
+      always-show-universal-access-status = true;
+    };
+
     #window control button layout
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "close,minimize,maximize:";

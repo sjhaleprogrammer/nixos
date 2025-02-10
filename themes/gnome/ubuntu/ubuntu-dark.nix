@@ -47,7 +47,7 @@
         clock-show-date = true;
         clock-show-seconds = false;
         clock-show-weekday = false;
-        color-scheme = "default";
+        color-scheme = "prefer-dark";
         cursor-blink = true;
         cursor-blink-time = 1200;
         cursor-blink-timeout = 10;
@@ -67,10 +67,10 @@
         gtk-im-preedit-style = "callback";
         gtk-im-status-style = "callback";
         gtk-key-theme = "Default";
-        gtk-theme = "Yaru";
+        gtk-theme = "Yaru-dark";
         gtk-timeout-initial = 200;
         gtk-timeout-repeat = 20;
-        icon-theme = "Yaru";
+        icon-theme = "Yaru-dark";
         locate-pointer = false;
         menubar-accel = "F10";
         menubar-detachable = false;
