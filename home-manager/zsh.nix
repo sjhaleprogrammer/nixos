@@ -5,23 +5,16 @@
   
   programs.zsh = {
       enable = true;
-      dotDir = ".config/zsh";
       enableCompletion = true;
-      autosuggestions.enable = true;
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-
-      /*
       zplug = {
         enable = true;
         plugins = [
           { name = "zsh-users/zsh-autosuggestions"; } # Simple plugin installation
-          {
-            name = "dracula/zsh";
-            tags = [ "as:theme" ];
-          }
+          { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; } # Installations with additional options. For the list of options, please refer to Zplug README.
         ];
       };
-      */
      
       history.size = 10000;
       history.ignoreAllDups = true;

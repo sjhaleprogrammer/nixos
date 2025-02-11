@@ -22,6 +22,7 @@
       user = "samuel";
       email = "samworlds1231337@gmail.com";
       terminal = "ghostty";
+      shell = "zsh";
 
     in
     {
@@ -29,7 +30,7 @@
 
         gnome-laptop = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs system user;
+            inherit inputs system user shell;
           };
           modules = [
             #system
@@ -61,6 +62,9 @@
                   #terminal
                   ./home-manager/${terminal}.nix
 
+                  #shell
+                  ./home-manager/${shell}.nix
+
                   #git
                   ./home-manager/git.nix
 
@@ -69,7 +73,6 @@
 
                   #nixcord
                   ./home-manager/nixcord.nix
-
 
                 ];
                 extraSpecialArgs = {

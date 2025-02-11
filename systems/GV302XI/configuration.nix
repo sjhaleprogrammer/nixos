@@ -4,6 +4,7 @@
   lib,
   inputs,
   user,
+  shell,
   ...
 }:
 
@@ -175,7 +176,7 @@
   };
 
 
-  programs.zsh.enable = true;
+  programs.${shell}.enable = true;
 
   #users
   users = {
@@ -185,7 +186,7 @@
         isNormalUser = true;
         home = "/home/${user}";
         #password = "test";
-        shell = pkgs.zsh;
+        shell = pkgs.${shell};
         uid = 1000;
         group = user;
         extraGroups = [
