@@ -11,8 +11,10 @@
       zplug = {
         enable = true;
         plugins = [
-          { name = "zsh-users/zsh-autosuggestions"; } # Simple plugin installation
-          { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; } # Installations with additional options. For the list of options, please refer to Zplug README.
+          { name = "plugins/git"; tags = [ from:oh-my-zsh ]; } # Install a plugin from GitHub
+          { name = "mafredri/zsh-async"; tags = [ from:github ]; }
+          { name = "sindresorhus/pure"; tags = [ use:pure.zsh from:github as:theme ]; }
+         
         ];
       };
      
