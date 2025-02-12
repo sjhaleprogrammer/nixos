@@ -5,10 +5,10 @@
         enable = true;
         enableZshIntegration = true;
 
-        settings = ''
-            theme = Batman
+        settings = {
+            theme = "Batman";
                
-        '';
+        };
     };
         
 }

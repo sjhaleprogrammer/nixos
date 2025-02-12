@@ -89,21 +89,6 @@
         "url": "https://flakehub.com/f/DeterminateSystems/flake-schemas/%3D0.1.5.tar.gz"
       }
     },
-    "ghostty": {
-      "locked": {
-        "lastModified": 1736826897,
-        "narHash": "sha256-i4bssUCEVLx4QfUa37rqXVEi7u0S0kubimdW8KS7NrI=",
-        "owner": "clo4",
-        "repo": "ghostty-hm-module",
-        "rev": "80a9c2a328a9610bcdeae9a03fff4a0a97effee3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "clo4",
-        "repo": "ghostty-hm-module",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -296,7 +281,6 @@
       "inputs": {
         "chaotic": "chaotic",
         "color-schemes": "color-schemes",
-        "ghostty": "ghostty",
         "home-manager": "home-manager_2",
         "nixcord": "nixcord",
         "nixos-hardware": "nixos-hardware",
