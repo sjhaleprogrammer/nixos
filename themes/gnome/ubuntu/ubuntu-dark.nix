@@ -9,7 +9,7 @@
 
   gtk = {
     theme = {
-      name = "Yaru";
+      name = "Yaru-dark";
     };
   };
 
