@@ -23,6 +23,22 @@
         "type": "github"
       }
     },
+    "color-schemes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738346795,
+        "narHash": "sha256-SzjHmjAPQJISn6WqF0oAQwlwKZRxRfC3B7KiXqkz86k=",
+        "owner": "mbadolato",
+        "repo": "iTerm2-Color-Schemes",
+        "rev": "db227d159adc265818f2e898da0f70ef8d7b580e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mbadolato",
+        "repo": "iTerm2-Color-Schemes",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -71,6 +87,21 @@
       "original": {
         "type": "tarball",
         "url": "https://flakehub.com/f/DeterminateSystems/flake-schemas/%3D0.1.5.tar.gz"
+      }
+    },
+    "ghostty": {
+      "locked": {
+        "lastModified": 1736826897,
+        "narHash": "sha256-i4bssUCEVLx4QfUa37rqXVEi7u0S0kubimdW8KS7NrI=",
+        "owner": "clo4",
+        "repo": "ghostty-hm-module",
+        "rev": "80a9c2a328a9610bcdeae9a03fff4a0a97effee3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "clo4",
+        "repo": "ghostty-hm-module",
+        "type": "github"
       }
     },
     "home-manager": {
@@ -264,6 +295,8 @@
     "root": {
       "inputs": {
         "chaotic": "chaotic",
+        "color-schemes": "color-schemes",
+        "ghostty": "ghostty",
         "home-manager": "home-manager_2",
         "nixcord": "nixcord",
         "nixos-hardware": "nixos-hardware",
