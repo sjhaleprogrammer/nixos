@@ -7,12 +7,6 @@
 
 {
 
-  gtk = {
-    theme = {
-      name = "Yaru-dark";
-    };
-  };
-
   home.packages = with pkgs; [
     ubuntu-sans
     ubuntu-sans-mono
@@ -39,6 +33,11 @@
         gtk4-desktop-icons-ng-ding.extensionUuid
         dash-to-dock.extensionUuid
       ];
+    };
+
+     #User theme extension
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Yaru-dark";
     };
 
     "org/gnome/deskop/a11y" = {
