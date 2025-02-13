@@ -6,7 +6,9 @@
 }:
 
 {
-
+  
+  programs.ghostty.settings.theme = "Ubuntu";
+  
   home.packages = with pkgs; [
     ubuntu-sans
     ubuntu-sans-mono
