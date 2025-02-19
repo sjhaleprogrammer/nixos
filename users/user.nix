@@ -42,21 +42,9 @@
 
     settings.experimental-features = [ "nix-command" "flakes" ];
     settings.auto-optimise-store = true;
-    settings.trusted-users = [ "root" user ];
-
     
 
   };
-
-
  
-
-
-  
-
-
-
-
-
 
 }
