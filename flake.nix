@@ -71,6 +71,9 @@
                   #direnv
                   ./home-manager/direnv.nix
 
+                  #devenv
+                  ./home-manager/devenv.nix
+
                   #nixcord
                   ./home-manager/nixcord.nix
 
@@ -131,10 +134,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord.url = "github:kaylorben/nixcord";
-    color-schemes = {
-      url = "github:mbadolato/iTerm2-Color-Schemes";
-      flake = false;
-    };
+    
 
   };
 

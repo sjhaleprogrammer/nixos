@@ -33,6 +33,24 @@
   #dont touch
   fonts.fontconfig.enable = true;
 
+  #nix package manager configuration
+  nix = {
+
+    gc = {
+      automatic = true;
+    };
+
+    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.auto-optimise-store = true;
+    settings.trusted-users = [ "root" user ];
+
+    nix.extraOptions = ''
+         extra-substituters = https://devenv.cachix.org
+         extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
+    '';
+
+  };
+
 
  
 
