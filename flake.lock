@@ -23,22 +23,6 @@
         "type": "github"
       }
     },
-    "color-schemes": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1739397407,
-        "narHash": "sha256-SsR+7zZNv/NGFsQdeCF04kDB2aF18qBp2o410NqcAlk=",
-        "owner": "mbadolato",
-        "repo": "iTerm2-Color-Schemes",
-        "rev": "efb1bb1843500a751eb30afa58fe48a6bec8952c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mbadolato",
-        "repo": "iTerm2-Color-Schemes",
-        "type": "github"
-      }
-    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -280,7 +264,6 @@
     "root": {
       "inputs": {
         "chaotic": "chaotic",
-        "color-schemes": "color-schemes",
         "home-manager": "home-manager_2",
         "nixcord": "nixcord",
         "nixos-hardware": "nixos-hardware",
