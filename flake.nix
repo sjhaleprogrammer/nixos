@@ -35,7 +35,7 @@
             inherit inputs system user shell;
           };
           modules = [
-            {nix.settings.trusted-users = [ "root" ${user} ];}
+            {nix.settings.trusted-users = [ "root" user ];}
 
             #system
             ./systems/GV302XI/configuration.nix
