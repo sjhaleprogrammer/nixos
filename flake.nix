@@ -23,6 +23,8 @@
       email = "samworlds1231337@gmail.com";
       terminal = "ghostty";
       shell = "zsh";
+      compositor = "gnome";
+      theme = "ubuntu-dark";
 
     in
     {
@@ -37,7 +39,7 @@
             ./systems/GV302XI/configuration.nix
 
             #compositor
-            ./compositors/gnome.nix
+            ./compositors/${compositor}.nix
 
             #qemu
             ./nixpkgs/qemu.nix
@@ -57,7 +59,7 @@
                 sharedModules = [
 
                   #theme
-                  ./themes/gnome/ubuntu/ubuntu-dark.nix
+                  ./themes/${compositor}/ubuntu/${theme}.nix
 
                   #terminal
                   ./home-manager/${terminal}.nix
