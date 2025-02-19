@@ -71,9 +71,6 @@
                   #direnv
                   ./home-manager/direnv.nix
 
-                  #devenv
-                  ./home-manager/devenv.nix
-
                   #nixcord
                   ./home-manager/nixcord.nix
 
