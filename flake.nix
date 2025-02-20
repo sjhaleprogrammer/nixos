@@ -16,6 +16,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        config.cudaSupport = true;
       };
 
       #configuration user    
@@ -25,6 +26,7 @@
       shell = "zsh";
       compositor = "gnome";
       theme = "ubuntu-dark";
+
 
     in
     {
