@@ -25,7 +25,7 @@
       terminal = "ghostty";
       shell = "zsh";
       compositor = "gnome";
-      theme = "macos/bigsur-dark";
+      theme = "ubuntu/ubuntu-dark";
 
 
     in
@@ -127,7 +127,7 @@
 
   inputs = {
     #nixpkgs
-    nixpkgs.url = "github:sjhaleprogrammer/nixpkgs/master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:sjhaleprogrammer/nixos-hardware/master";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     
