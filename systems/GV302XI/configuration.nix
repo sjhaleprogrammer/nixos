@@ -168,7 +168,7 @@
       users.${user} = {
         isNormalUser = true;
         home = "/home/${user}";
-        #password = "test";
+        password = "test";
         shell = pkgs.${shell};
         uid = 1000;
         group = user;

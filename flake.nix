@@ -25,7 +25,7 @@
       terminal = "ghostty";
       shell = "zsh";
       compositor = "gnome";
-      theme = "ubuntu-dark";
+      theme = "macos/bigsur-dark";
 
 
     in
@@ -54,7 +54,7 @@
 
             #./nixpkgs/darling.nix
             #./nixpkgs/steam.nix
-            ./nixpkgs/davinci-resolve-studio.nix
+            #./nixpkgs/davinci-resolve-studio.nix
 
             #home-manager
             home-manager.nixosModules.home-manager #user
@@ -64,7 +64,7 @@
                 sharedModules = [
 
                   #theme
-                  ./themes/${compositor}/ubuntu/${theme}.nix
+                  ./themes/${compositor}/${theme}.nix
 
                   #terminal
                   ./home-manager/${terminal}.nix
@@ -127,7 +127,7 @@
 
   inputs = {
     #nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:sjhaleprogrammer/nixpkgs/master";
     nixos-hardware.url = "github:sjhaleprogrammer/nixos-hardware/master";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     
