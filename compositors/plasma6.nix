@@ -9,10 +9,6 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.overlays = [ ];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 

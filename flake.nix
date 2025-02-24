@@ -11,13 +11,8 @@
       ...
     }@inputs:
     let
+      
       system = "x86_64-linux";
-
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-        config.cudaSupport = true;
-      };
 
       #configuration user    
       user = "samuel";
@@ -37,7 +32,10 @@
             inherit inputs system user shell;
           };
           modules = [
-            {nix.settings.trusted-users = [ "root" user ];}
+            { nixpkgs.config.allowUnfree = true;
+              nixpkgs.config.cudaSupport = true;
+              nix.settings.trusted-users = [ "root" user ];
+            }
 
             #system
             ./systems/GV302XI/configuration.nix
