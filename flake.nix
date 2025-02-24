@@ -55,6 +55,7 @@
             #./nixpkgs/darling.nix
             #./nixpkgs/steam.nix
             #./nixpkgs/davinci-resolve-studio.nix
+            ./nixpkgs/blender.nix
 
             #home-manager
             home-manager.nixosModules.home-manager #user
