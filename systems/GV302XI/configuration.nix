@@ -117,7 +117,7 @@
 
 
   hardware = {
-    nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+    
     graphics = {
       enable = true;
       enable32Bit = true;
