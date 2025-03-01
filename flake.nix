@@ -20,7 +20,7 @@
       terminal = "ghostty";
       shell = "zsh";
       compositor = "gnome";
-      theme = "ubuntu/ubuntu-dark";
+      theme = "custom";
 
 
     in
