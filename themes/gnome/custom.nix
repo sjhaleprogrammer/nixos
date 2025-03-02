@@ -7,7 +7,7 @@
 
 {
   
-  programs.ghostty.settings.theme = "DjangoRebornAgain";
+  programs.ghostty.settings.theme = "darkmatrix";
   programs.ghostty.settings.background-opacity = 0.9;
   
   home.packages = with pkgs; [
