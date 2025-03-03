@@ -17,9 +17,9 @@
 
 
     #browser
-    firefox
+    librewolf
 
-    vscode-fhs
+    vscodium
 
 
     #fonts
@@ -38,6 +38,7 @@
 
     gc = {
       automatic = true;
+      
     };
 
     settings.experimental-features = [ "nix-command" "flakes" ];
