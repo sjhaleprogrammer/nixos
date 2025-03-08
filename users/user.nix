@@ -17,7 +17,7 @@
 
 
     #browser
-    librewolf
+    firefox
 
     vscodium
 
